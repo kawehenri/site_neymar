@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Momentos da Carreira de Neymar Jr</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Neymar Jr</h1>
+  </header>
+
+  <section class="galeria">
+    <div class="card">
+      <img src="/imgs/real.jpeg" alt="Neymar no Real Madrid criança">
+      <p>O Neymar quando era criança quase foi ao Real Madrid. Saiba mais no link!</p>
+      <a href="https://youtu.be/ZowoTQy8T9M?feature=shared" target="_blank">Ver história no YouTube</a>
+    </div>
+
+    <div class="card">
+      <img src="/imgs/santos.jpeg" alt="Neymar no Santos">
+      <p>Historia incrivel do jovem craque e como consquistou o Brasil tão novo no Santos Futebol Clube.</p>
+      <a href="https://youtu.be/IPoupsx3XXM?feature=shared" target="_blank">Ver história no YouTube</a>
+    </div>
+
+    <div class="card">
+      <img src="/imgs/barça.jpeg" alt="Neymar no Barcelona">
+      <p>Sucesso no Barcelona ao lado de Messi e Suárez.</p>
+      <a href="https://youtu.be/gHlaFLsCrTw?feature=shared" target="_blank">Ver história no YouTube</a>
+    </div>
+
+    <div class="card">
+      <img src="/imgs/psg.jpeg" alt="Neymar no PSG">
+      <p>Transferência recorde para o Paris Saint-Germain.</p>
+      <a href="https://youtu.be/paPNWIgWBTI?feature=shared" target="_blank">Ver história no YouTube</a>
+    </div>
+
+    <div class="card">
+      <img src="/imgs/brasil.jpeg" alt="Neymar na Seleção Brasileira">
+      <p>Conquistas e desafios na Seleção Brasileira.</p>
+      <a href="https://youtu.be/E8HDMaVYy8Y?feature=shared" target="_blank">Ver história no YouTube</a>
+    </div>
+
+    <div class="card">
+      <img src="/imgs/Neymar Jr 💗.jpg" alt="História completa do Neymar Jr">
+      <p>A trajetória completa de Neymar Jr.</p>
+      <a href="https://youtu.be/AsP_tYV5FyQ?feature=shared" target="_blank">Ver documentário</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Momentos marcantes da carreira de Neymar Jr</p>
+    <p>Desenvolvido por Kawê Henrique - 2025</p>
+    <div style="margin-top:10px;">
+      <a href="https://github.com/kawehenri" target="_blank" title="GitHub" style="margin-right:10px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+          <path fill="#333" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.48 2.87 8.28 6.84 9.63.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.61-3.37-1.36-3.37-1.36-.45-1.17-1.1-1.48-1.1-1.48-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/>
+        </svg>
+      </a>
+      <a href="https://linkedin.com/in/kawehenri" target="_blank" title="LinkedIn">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="4" fill="#0077B5"/>
+          <path d="M7.75 17H5.5V9.5h2.25V17zM6.625 8.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25zM18.5 17h-2.25v-3.25c0-.78-.01-1.78-1.09-1.78-1.09 0-1.26.85-1.26 1.72V17h-2.25V9.5h2.16v1.03h.03c.3-.57 1.03-1.17 2.12-1.17 2.27 0 2.69 1.5 2.69 3.44V17z" fill="#fff"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+  // Animação de fade-in nas cards ao carregar
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.card').forEach((card, i) => {
+      card.style.opacity = 0;
+      card.style.transform = 'translateY(40px)';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1)';
+        card.style.opacity = 1;
+        card.style.transform = 'translateY(0)';
+      }, 200 + i * 120);
+    });
+  });
+  </script>
+</body>
+</html>
