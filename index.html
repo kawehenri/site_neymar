@@ -4,50 +4,107 @@
   <meta charset="UTF-8">
   <title>Momentos da Carreira de Neymar Jr</title>
   <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Veja os principais momentos da carreira de Neymar Jr em fotos, vídeos e curiosidades.">
 </head>
 <body>
 
   <header>
     <h1>Neymar Jr</h1>
+    <h2 style="font-weight:400; margin-top:0; color:#007BFF; font-size:1.3rem;">
+      Momentos marcantes da carreira do craque brasileiro
+    </h2>
   </header>
 
-  <section class="galeria">
-    <div class="card">
-      <img src="/imgs/real.jpeg" alt="Neymar no Real Madrid criança">
-      <p>O Neymar quando era criança quase foi ao Real Madrid. Saiba mais no link!</p>
-      <a href="https://youtu.be/ZowoTQy8T9M?feature=shared" target="_blank">Ver história no YouTube</a>
-    </div>
-
-    <div class="card">
-      <img src="/imgs/santos.jpeg" alt="Neymar no Santos">
-      <p>Historia incrivel do jovem craque e como consquistou o Brasil tão novo no Santos Futebol Clube.</p>
-      <a href="https://youtu.be/IPoupsx3XXM?feature=shared" target="_blank">Ver história no YouTube</a>
-    </div>
-
-    <div class="card">
-      <img src="/imgs/barça.jpeg" alt="Neymar no Barcelona">
-      <p>Sucesso no Barcelona ao lado de Messi e Suárez.</p>
-      <a href="https://youtu.be/gHlaFLsCrTw?feature=shared" target="_blank">Ver história no YouTube</a>
-    </div>
-
-    <div class="card">
-      <img src="/imgs/psg.jpeg" alt="Neymar no PSG">
-      <p>Transferência recorde para o Paris Saint-Germain.</p>
-      <a href="https://youtu.be/paPNWIgWBTI?feature=shared" target="_blank">Ver história no YouTube</a>
-    </div>
-
-    <div class="card">
-      <img src="/imgs/brasil.jpeg" alt="Neymar na Seleção Brasileira">
-      <p>Conquistas e desafios na Seleção Brasileira.</p>
-      <a href="https://youtu.be/E8HDMaVYy8Y?feature=shared" target="_blank">Ver história no YouTube</a>
-    </div>
-
-    <div class="card">
-      <img src="/imgs/Neymar Jr 💗.jpg" alt="História completa do Neymar Jr">
-      <p>A trajetória completa de Neymar Jr.</p>
-      <a href="https://youtu.be/AsP_tYV5FyQ?feature=shared" target="_blank">Ver documentário</a>
+  <section class="banner-destaque">
+    <div>
+      <strong>“Talento, ousadia e paixão pelo futebol.”</strong>
+      <p>Explore os principais capítulos da trajetória de Neymar Jr, desde os primeiros dribles até os maiores palcos do mundo.</p>
     </div>
   </section>
+
+  <main>
+    <section class="galeria">
+      <div class="card">
+        <img src="/imgs/real.jpeg" alt="Neymar no Real Madrid criança">
+        <p>O Neymar quando era criança quase foi ao Real Madrid. Saiba mais no link!</p>
+        <a href="https://youtu.be/ZowoTQy8T9M?feature=shared" target="_blank">Ver história no YouTube</a>
+      </div>
+
+      <div class="card">
+        <img src="/imgs/santos.jpeg" alt="Neymar no Santos">
+        <p>Historia incrivel do jovem craque e como consquistou o Brasil tão novo no Santos Futebol Clube.</p>
+        <a href="https://youtu.be/IPoupsx3XXM?feature=shared" target="_blank">Ver história no YouTube</a>
+      </div>
+
+      <div class="card">
+        <img src="/imgs/barça.jpeg" alt="Neymar no Barcelona">
+        <p>Sucesso no Barcelona ao lado de Messi e Suárez.</p>
+        <a href="https://youtu.be/gHlaFLsCrTw?feature=shared" target="_blank">Ver história no YouTube</a>
+      </div>
+
+      <div class="card">
+        <img src="/imgs/psg.jpeg" alt="Neymar no PSG">
+        <p>Transferência recorde para o Paris Saint-Germain.</p>
+        <a href="https://youtu.be/paPNWIgWBTI?feature=shared" target="_blank">Ver história no YouTube</a>
+      </div>
+
+      <div class="card">
+        <img src="/imgs/brasil.jpeg" alt="Neymar na Seleção Brasileira">
+        <p>Conquistas e desafios na Seleção Brasileira.</p>
+        <a href="https://youtu.be/E8HDMaVYy8Y?feature=shared" target="_blank">Ver história no YouTube</a>
+      </div>
+
+      <div class="card">
+        <img src="/imgs/Neymar Jr 💗.jpg" alt="História completa do Neymar Jr">
+        <p>A trajetória completa de Neymar Jr.</p>
+        <a href="https://youtu.be/AsP_tYV5FyQ?feature=shared" target="_blank">Ver documentário</a>
+      </div>
+    </section>
+
+    <section class="timeline">
+      <h3>Linha do Tempo</h3>
+      <div class="timeline-container">
+        <div class="timeline-item" data-historia="No Santos, Neymar encantou o Brasil com dribles e gols, conquistando a Libertadores em 2011.">
+          <img src="/imgs/santos.jpeg" alt="Santos" />
+          <span>Santos</span>
+        </div>
+        <div class="timeline-item" data-historia="No Barcelona, formou o trio MSN com Messi e Suárez, conquistando a Champions League em 2015.">
+          <img src="/imgs/barça.jpeg" alt="Barcelona" />
+          <span>Barcelona</span>
+        </div>
+        <div class="timeline-item" data-historia="No PSG, protagonizou a maior transferência da história e ganhou vários títulos franceses.">
+          <img src="/imgs/psg.jpeg" alt="PSG" />
+          <span>PSG</span>
+        </div>
+        <div class="timeline-item" data-historia="Na Seleção Brasileira, Neymar foi campeão olímpico em 2016 e é um dos maiores artilheiros da história do Brasil.">
+          <img src="/imgs/brasil.jpeg" alt="Seleção Brasileira" />
+          <span>Brasil</span>
+        </div>
+      </div>
+      <div id="tooltip-timeline" class="tooltip-timeline"></div>
+    </section>
+
+    <section class="curiosidades">
+      <h3>Curiosidades</h3>
+      <ul>
+        <li>
+          <span class="curiosidade-titulo">Primeiro gol como profissional aos 17 anos.</span>
+        </li>
+        <li>
+          <span class="curiosidade-titulo">Maior artilheiro do Brasil em Copas América.</span>
+        </li>
+        <li>
+          <span class="curiosidade-titulo">Todos os gols de Neymar pela Seleção Brasileira:</span>
+          <a class="curiosidade-link" href="https://youtu.be/uxwhdEsambY?feature=shared" target="_blank">
+            <img src="/imgs/Neymar Jr.jpg" alt="Todos os gols de Neymar pela Seleção" class="curiosidade-thumb">
+            Assistir no YouTube
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <hr style="border: none; border-top: 2px solid #eee; margin: 40px 0 0 0;">
 
   <footer>
     <p>Momentos marcantes da carreira de Neymar Jr</p>
@@ -67,6 +124,8 @@
     </div>
   </footer>
 
+  <button id="topo" title="Voltar ao topo">↑</button>
+
   <script>
   // Animação de fade-in nas cards ao carregar
   document.addEventListener('DOMContentLoaded', () => {
@@ -78,6 +137,29 @@
         card.style.opacity = 1;
         card.style.transform = 'translateY(0)';
       }, 200 + i * 120);
+    });
+  });
+
+  // Botão voltar ao topo
+  const topoBtn = document.getElementById('topo');
+  window.addEventListener('scroll', () => {
+    topoBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
+  });
+  topoBtn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+
+  // Tooltip da timeline
+  const tooltip = document.getElementById('tooltip-timeline');
+  document.querySelectorAll('.timeline-item').forEach(item => {
+    item.addEventListener('mouseenter', e => {
+      tooltip.textContent = item.getAttribute('data-historia');
+      tooltip.style.opacity = 1;
+    });
+    item.addEventListener('mousemove', e => {
+      tooltip.style.left = (e.clientX + 18) + 'px';
+      tooltip.style.top = (e.clientY - 10) + 'px';
+    });
+    item.addEventListener('mouseleave', () => {
+      tooltip.style.opacity = 0;
     });
   });
   </script>

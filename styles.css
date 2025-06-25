@@ -10,6 +10,19 @@ body {
   background-attachment: fixed;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: rgba(30, 30, 60, 0.25); /* ajuste a opacidade conforme desejar */
+  pointer-events: none;
+}
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
 header, footer {
   background-color: #333;
   color: white;
@@ -28,7 +41,7 @@ header, footer {
 }
 
 .card {
-  background: linear-gradient(120deg, #fff 80%, #e0e7ff 100%);
+  background: linear-gradient(120deg, #fffdfde6 80%, #e0e7ffe6 100%);
   border: 1px solid #ddd;
   width: 260px;
   padding: 18px 15px 15px 15px;
@@ -63,10 +76,11 @@ header, footer {
 }
 
 .card p {
-  font-size: 15px;
+  font-size: 1rem;
   margin-bottom: 12px;
   color: #333;
   min-height: 48px;
+  word-break: break-word;
 }
 
 .card a {
@@ -103,6 +117,177 @@ footer svg {
 footer a:hover svg {
   transform: scale(1.18) rotate(-6deg);
   filter: drop-shadow(0 2px 6px #0077b5aa);
+}
+
+.banner-destaque {
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  text-align: center;
+  padding: 32px 10px 24px 10px;
+  margin-bottom: 10px;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+.banner-destaque strong {
+  font-size: 1.5rem;
+  color: #FFD700;
+  display: block;
+  margin-bottom: 8px;
+}
+.banner-destaque p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Estilos da Linha do Tempo */
+.timeline {
+  margin: 40px auto 0 auto;
+  max-width: 900px;
+  text-align: center;
+}
+.timeline h3 {
+  color: #007BFF;
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+}
+.timeline-container {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.timeline-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #007BFF;
+  margin-bottom: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.timeline-item img:hover {
+  filter: brightness(1.15) drop-shadow(0 0 8px #007BFF55);
+  transition: filter 0.2s;
+}
+.timeline-item span {
+  font-size: 1rem;
+  color: #222;
+}
+.timeline-item:focus {
+  outline: 2px solid #FFD700;
+  box-shadow: 0 0 0 4px #ffd70044;
+}
+
+/* Botão de Voltar ao Topo */
+#topo {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  display: none;
+  z-index: 100;
+  transition: background 0.2s;
+}
+#topo:hover {
+  background: #0056b3;
+}
+
+/* Tooltip da Linha do Tempo */
+.tooltip-timeline {
+  position: fixed;
+  background: #222;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 1rem;
+  max-width: 260px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 9999;
+  transform: scale(0.95);
+}
+.tooltip-timeline[style*="opacity: 1"] {
+  transform: scale(1);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+/* Curiosidades */
+.curiosidades {
+  max-width: 700px;
+  margin: 40px auto 0 auto;
+  background: linear-gradient(120deg, #fff 80%, #e0e7ff 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  padding: 32px 22px;
+  text-align: center;
+  border: 1.5px solid #007BFF22;
+}
+.curiosidades h3 {
+  color: #007BFF;
+  margin-bottom: 18px;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+.curiosidades ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.curiosidades li {
+  margin-bottom: 18px;
+  font-size: 1.08rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.curiosidade-titulo {
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 2px;
+}
+.curiosidade-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e0e7ff;
+  color: #007BFF;
+  font-weight: bold;
+  border-radius: 18px;
+  padding: 6px 14px 6px 6px;
+  text-decoration: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  margin-top: 3px;
+}
+.curiosidade-link:hover {
+  background: #007BFF;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,123,255,0.14);
+  text-decoration: underline;
+}
+.curiosidade-thumb {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: 1.5px solid #007BFF44;
 }
 
 /* Responsividade */
