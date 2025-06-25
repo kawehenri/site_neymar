@@ -1,10 +1,13 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: #f5f5f5;
   min-height: 100vh;
-  /* Gradiente suave no fundo */
   background: linear-gradient(135deg, #f5f5f5 60%, #e0e7ff 100%);
+  /* Imagem de fundo */
+  background-image: url('/imgs/instituooy.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 header, footer {
