@@ -2,166 +2,383 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Momentos da Carreira de Neymar Jr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neymar Jr — O Rei do Drible</title>
+  <meta name="description" content="Site tributo a Neymar Jr — momentos marcantes, linha do tempo e curiosidades sobre o craque brasileiro.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="Veja os principais momentos da carreira de Neymar Jr em fotos, vídeos e curiosidades.">
 </head>
 <body>
 
-  <header>
-    <h1>Neymar Jr</h1>
-    <h2 style="font-weight:400; margin-top:0; color:#007BFF; font-size:1.3rem;">
-      Momentos marcantes da carreira do craque brasileiro
-    </h2>
-  </header>
+  <!-- ====== NAVBAR ====== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="#">NJR <span>10</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#carreira">Carreira</a></li>
+        <li><a href="#timeline">Linha do Tempo</a></li>
+        <li><a href="#curiosidades">Curiosidades</a></li>
+        <li><a href="artigo.html" class="nav-link-artigo">Artigo</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <section class="banner-destaque">
-    <div>
-      <strong>“Talento, ousadia e paixão pelo futebol.”</strong>
-      <p>Explore os principais capítulos da trajetória de Neymar Jr, desde os primeiros dribles até os maiores palcos do mundo.</p>
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg">
+      <img src="/imgs/Neymar Jr 💗.jpg" alt="Neymar Jr" class="hero-img">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">O CRAQUE BRASILEIRO</p>
+      <h1 class="hero-title">NEYMAR<br><span class="hero-title-accent">JR</span></h1>
+      <p class="hero-subtitle">Talento, ousadia e paixão pelo futebol — explore a incrível trajetória do camisa 10 do Brasil.</p>
+      <div class="hero-ctas">
+        <a href="#carreira" class="btn btn-primary">Ver Carreira</a>
+        <a href="#timeline" class="btn btn-outline">Linha do Tempo</a>
+      </div>
+    </div>
+    <a class="hero-scroll-cta" href="#stats" aria-label="Rolar para baixo">
+      <span class="scroll-chevron"></span>
+    </a>
+  </section>
+
+  <!-- ====== STATS ====== -->
+  <section class="stats-section" id="stats">
+    <div class="stats-grid">
+      <div class="stat-item" data-count="79" data-suffix="+">
+        <span class="stat-number">0</span>
+        <span class="stat-label">Gols pela Seleção</span>
+      </div>
+      <div class="stat-item" data-count="3" data-suffix="">
+        <span class="stat-number">0</span>
+        <span class="stat-label">Grandes Clubes</span>
+      </div>
+      <div class="stat-item" data-count="30" data-suffix="+">
+        <span class="stat-number">0</span>
+        <span class="stat-label">Títulos na Carreira</span>
+      </div>
+      <div class="stat-item" data-count="222" data-suffix="M€">
+        <span class="stat-number">0</span>
+        <span class="stat-label">Transferência Recorde</span>
+      </div>
     </div>
   </section>
 
-  <main>
-    <section class="galeria">
-      <div class="card">
-        <img src="/imgs/real.jpeg" alt="Neymar no Real Madrid criança">
-        <p>O Neymar quando era criança quase foi ao Real Madrid. Saiba mais no link!</p>
-        <a href="https://youtu.be/ZowoTQy8T9M?feature=shared" target="_blank">Ver história no YouTube</a>
-      </div>
+  <!-- ====== CARREIRA ====== -->
+  <section class="carreira-section" id="carreira">
+    <div class="section-header">
+      <p class="section-eyebrow">TRAJETÓRIA</p>
+      <h2 class="section-title">Momentos da Carreira</h2>
+      <p class="section-desc">Dos campos do Santos aos maiores estádios do mundo</p>
+    </div>
+    <div class="carreira-grid">
 
-      <div class="card">
-        <img src="/imgs/santos.jpeg" alt="Neymar no Santos">
-        <p>Historia incrivel do jovem craque e como consquistou o Brasil tão novo no Santos Futebol Clube.</p>
-        <a href="https://youtu.be/IPoupsx3XXM?feature=shared" target="_blank">Ver história no YouTube</a>
-      </div>
-
-      <div class="card">
-        <img src="/imgs/barça.jpeg" alt="Neymar no Barcelona">
-        <p>Sucesso no Barcelona ao lado de Messi e Suárez.</p>
-        <a href="https://youtu.be/gHlaFLsCrTw?feature=shared" target="_blank">Ver história no YouTube</a>
-      </div>
-
-      <div class="card">
-        <img src="/imgs/psg.jpeg" alt="Neymar no PSG">
-        <p>Transferência recorde para o Paris Saint-Germain.</p>
-        <a href="https://youtu.be/paPNWIgWBTI?feature=shared" target="_blank">Ver história no YouTube</a>
-      </div>
-
-      <div class="card">
-        <img src="/imgs/brasil.jpeg" alt="Neymar na Seleção Brasileira">
-        <p>Conquistas e desafios na Seleção Brasileira.</p>
-        <a href="https://youtu.be/E8HDMaVYy8Y?feature=shared" target="_blank">Ver história no YouTube</a>
-      </div>
-
-      <div class="card">
-        <img src="/imgs/Neymar Jr 💗.jpg" alt="História completa do Neymar Jr">
-        <p>A trajetória completa de Neymar Jr.</p>
-        <a href="https://youtu.be/AsP_tYV5FyQ?feature=shared" target="_blank">Ver documentário</a>
-      </div>
-    </section>
-
-    <section class="timeline">
-      <h3>Linha do Tempo</h3>
-      <div class="timeline-container">
-        <div class="timeline-item" data-historia="No Santos, Neymar encantou o Brasil com dribles e gols, conquistando a Libertadores em 2011.">
-          <img src="/imgs/santos.jpeg" alt="Santos" />
-          <span>Santos</span>
-        </div>
-        <div class="timeline-item" data-historia="No Barcelona, formou o trio MSN com Messi e Suárez, conquistando a Champions League em 2015.">
-          <img src="/imgs/barça.jpeg" alt="Barcelona" />
-          <span>Barcelona</span>
-        </div>
-        <div class="timeline-item" data-historia="No PSG, protagonizou a maior transferência da história e ganhou vários títulos franceses.">
-          <img src="/imgs/psg.jpeg" alt="PSG" />
-          <span>PSG</span>
-        </div>
-        <div class="timeline-item" data-historia="Na Seleção Brasileira, Neymar foi campeão olímpico em 2016 e é um dos maiores artilheiros da história do Brasil.">
-          <img src="/imgs/brasil.jpeg" alt="Seleção Brasileira" />
-          <span>Brasil</span>
+      <div class="career-card reveal">
+        <div class="career-card-inner">
+          <img src="/imgs/real.jpeg" alt="Neymar e o Real Madrid na infância">
+          <div class="career-overlay">
+            <div class="career-content">
+              <span class="career-badge">Infância</span>
+              <h3>Quase no Real Madrid</h3>
+              <p>O jovem Neymar quase assinou pelo Real Madrid antes de optar por crescer no Brasil, trilhando seu próprio caminho.</p>
+              <a href="https://youtu.be/ZowoTQy8T9M?feature=shared" target="_blank" class="career-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
+                Ver no YouTube
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="tooltip-timeline" class="tooltip-timeline"></div>
-    </section>
 
-    <section class="curiosidades">
-      <h3>Curiosidades</h3>
-      <ul>
-        <li>
-          <span class="curiosidade-titulo">Primeiro gol como profissional aos 17 anos.</span>
-        </li>
-        <li>
-          <span class="curiosidade-titulo">Maior artilheiro do Brasil em Copas América.</span>
-        </li>
-        <li>
-          <span class="curiosidade-titulo">Todos os gols de Neymar pela Seleção Brasileira:</span>
-          <a class="curiosidade-link" href="https://youtu.be/uxwhdEsambY?feature=shared" target="_blank">
-            <img src="/imgs/Neymar Jr.jpg" alt="Todos os gols de Neymar pela Seleção" class="curiosidade-thumb">
-            Assistir no YouTube
-          </a>
-        </li>
-      </ul>
-    </section>
-  </main>
+      <div class="career-card reveal">
+        <div class="career-card-inner">
+          <img src="/imgs/santos.jpeg" alt="Neymar no Santos">
+          <div class="career-overlay">
+            <div class="career-content">
+              <span class="career-badge">2009 – 2013</span>
+              <h3>Santos FC</h3>
+              <p>Onde tudo começou. O jovem craque encantou o Brasil e conquistou a Libertadores em 2011 com apenas 19 anos.</p>
+              <a href="https://youtu.be/IPoupsx3XXM?feature=shared" target="_blank" class="career-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
+                Ver no YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <hr style="border: none; border-top: 2px solid #eee; margin: 40px 0 0 0;">
+      <div class="career-card reveal">
+        <div class="career-card-inner">
+          <img src="/imgs/barça.jpeg" alt="Neymar no Barcelona">
+          <div class="career-overlay">
+            <div class="career-content">
+              <span class="career-badge">2013 – 2017</span>
+              <h3>FC Barcelona</h3>
+              <p>O trio MSN com Messi e Suárez formou o ataque mais letal do mundo, conquistando a Champions League em 2015.</p>
+              <a href="https://youtu.be/gHlaFLsCrTw?feature=shared" target="_blank" class="career-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
+                Ver no YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <footer>
-    <p>Momentos marcantes da carreira de Neymar Jr</p>
-    <p>Desenvolvido por Kawê Henrique - 2025</p>
-    <div style="margin-top:10px;">
-      <a href="https://github.com/kawehenri" target="_blank" title="GitHub" style="margin-right:10px;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-          <path fill="#333" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.48 2.87 8.28 6.84 9.63.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.61-3.37-1.36-3.37-1.36-.45-1.17-1.1-1.48-1.1-1.48-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/>
-        </svg>
+      <div class="career-card reveal">
+        <div class="career-card-inner">
+          <img src="/imgs/psg.jpeg" alt="Neymar no PSG">
+          <div class="career-overlay">
+            <div class="career-content">
+              <span class="career-badge">2017 – 2023</span>
+              <h3>Paris Saint-Germain</h3>
+              <p>Transferência de €222 milhões — recorde mundial absoluto. Neymar liderou o PSG à final da Champions League em 2020.</p>
+              <a href="https://youtu.be/paPNWIgWBTI?feature=shared" target="_blank" class="career-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
+                Ver no YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="career-card reveal">
+        <div class="career-card-inner">
+          <img src="/imgs/brasil.jpeg" alt="Neymar na Seleção Brasileira">
+          <div class="career-overlay">
+            <div class="career-content">
+              <span class="career-badge">Seleção</span>
+              <h3>Brasil</h3>
+              <p>Campeão olímpico em 2016 e maior artilheiro da história da Seleção Brasileira, com mais de 79 gols marcados.</p>
+              <a href="https://youtu.be/E8HDMaVYy8Y?feature=shared" target="_blank" class="career-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
+                Ver no YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="career-card career-card-featured reveal">
+        <div class="career-card-inner">
+          <img src="/imgs/Neymar Jr 💗.jpg" alt="Documentário Neymar Jr">
+          <div class="career-overlay">
+            <div class="career-content">
+              <span class="career-badge career-badge-gold">Documentário</span>
+              <h3>A História Completa</h3>
+              <p>Da humildade de Mogi das Cruzes ao topo do futebol mundial — a trajetória completa e emocionante de Neymar Jr.</p>
+              <a href="https://youtu.be/AsP_tYV5FyQ?feature=shared" target="_blank" class="career-btn career-btn-gold">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
+                Ver Documentário
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== TIMELINE ====== -->
+  <section class="timeline-section" id="timeline">
+    <div class="section-header">
+      <p class="section-eyebrow">HISTÓRIA</p>
+      <h2 class="section-title">Linha do Tempo</h2>
+      <p class="section-desc">Os capítulos mais marcantes de uma carreira lendária</p>
+    </div>
+    <div class="timeline-wrap">
+      <div class="timeline-axis"></div>
+
+      <div class="tl-entry reveal" data-side="left">
+        <div class="tl-card">
+          <div class="tl-img-wrap">
+            <img src="/imgs/santos.jpeg" alt="Santos FC">
+            <span class="tl-year">2009</span>
+          </div>
+          <div class="tl-body">
+            <h3>Santos FC</h3>
+            <p>Assina seu primeiro contrato profissional e em poucos meses se torna a maior revelação do futebol brasileiro, encantando multidões com dribles desconcertantes.</p>
+            <ul class="tl-list">
+              <li>Libertadores 2011</li>
+              <li>2× Campeonato Brasileiro</li>
+              <li>Copa do Brasil 2010</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-spacer"></div>
+      </div>
+
+      <div class="tl-entry reveal" data-side="right">
+        <div class="tl-spacer"></div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-img-wrap">
+            <img src="/imgs/barça.jpeg" alt="FC Barcelona">
+            <span class="tl-year">2013</span>
+          </div>
+          <div class="tl-body">
+            <h3>FC Barcelona</h3>
+            <p>O trio MSN — Messi, Suárez e Neymar — formou o ataque mais devastador da história do futebol moderno, conquistando tudo que havia para conquistar.</p>
+            <ul class="tl-list">
+              <li>Champions League 2015</li>
+              <li>2× La Liga</li>
+              <li>3× Copa del Rey</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-entry reveal" data-side="left">
+        <div class="tl-card">
+          <div class="tl-img-wrap">
+            <img src="/imgs/brasil.jpeg" alt="Ouro Olímpico">
+            <span class="tl-year">2016</span>
+          </div>
+          <div class="tl-body">
+            <h3>Ouro Olímpico — Rio 2016</h3>
+            <p>Neymar marcou o gol decisivo nos pênaltis no Maracanã e deu ao Brasil seu primeiro ouro olímpico no futebol masculino, encerrando um jejum histórico.</p>
+            <ul class="tl-list">
+              <li>Medalha de Ouro Olímpica</li>
+              <li>Artilheiro do torneio</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-spacer"></div>
+      </div>
+
+      <div class="tl-entry reveal" data-side="right">
+        <div class="tl-spacer"></div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-img-wrap">
+            <img src="/imgs/psg.jpeg" alt="Paris Saint-Germain">
+            <span class="tl-year">2017</span>
+          </div>
+          <div class="tl-body">
+            <h3>Paris Saint-Germain</h3>
+            <p>Pelo valor histórico de €222 milhões, Neymar torna-se o jogador mais caro de todos os tempos e leva o PSG a novos patamares, chegando à final da Champions em 2020.</p>
+            <ul class="tl-list">
+              <li>5× Ligue 1</li>
+              <li>Final da Champions 2020</li>
+              <li>Artilheiro e assistente</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== CURIOSIDADES ====== -->
+  <section class="curiosidades-section" id="curiosidades">
+    <div class="section-header">
+      <p class="section-eyebrow">SABIA QUE...</p>
+      <h2 class="section-title">Curiosidades</h2>
+      <p class="section-desc">Fatos incríveis sobre o maior camisa 10 do Brasil</p>
+    </div>
+    <div class="curiosidades-grid">
+
+      <div class="curio-card reveal">
+        <div class="curio-icon">⚽</div>
+        <h4>Artilheiro Histórico</h4>
+        <p>Neymar é o maior artilheiro da história da Seleção Brasileira, com mais de 79 gols, superando Pelé em 2023.</p>
+      </div>
+
+      <div class="curio-card reveal">
+        <div class="curio-icon">🏆</div>
+        <h4>Primeiro Gol Profissional</h4>
+        <p>Marcou seu primeiro gol como profissional com apenas 17 anos, em 2009, defendendo o Santos Futebol Clube.</p>
+      </div>
+
+      <div class="curio-card reveal">
+        <div class="curio-icon">💰</div>
+        <h4>Transferência Recorde</h4>
+        <p>A transferência para o PSG em 2017 por €222 milhões ainda é o maior valor pago por um jogador na história do futebol.</p>
+      </div>
+
+      <div class="curio-card reveal">
+        <div class="curio-icon">🥇</div>
+        <h4>Herói Olímpico</h4>
+        <p>Decidiu o ouro olímpico de 2016 com o golaço nos pênaltis no Maracanã, encerrando um jejum histórico do Brasil.</p>
+      </div>
+
+      <div class="curio-card reveal">
+        <div class="curio-icon">🎨</div>
+        <h4>O Jogo Bonito</h4>
+        <p>Reconhecido mundialmente por combinar dribles desconcertantes, visão de jogo excepcional e uma alegria inconfundível dentro de campo.</p>
+      </div>
+
+      <div class="curio-card curio-card-video reveal">
+        <div class="curio-icon">🎬</div>
+        <h4>Todos os Gols pela Seleção</h4>
+        <p>Assista ao compilado de todos os gols históricos de Neymar defendendo o Brasil.</p>
+        <a href="https://youtu.be/uxwhdEsambY?feature=shared" target="_blank" class="curio-watch-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
+          Assistir no YouTube
+        </a>
+        <div class="curio-thumb-wrap">
+          <img src="/imgs/Neymar Jr.jpg" alt="Neymar pela Seleção" class="curio-thumb">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== ARTIGO CTA ====== -->
+  <section class="artigo-cta-section">
+    <div class="artigo-cta-inner reveal">
+      <div class="artigo-cta-text">
+        <span class="artigo-cta-tag">Leitura Especial</span>
+        <h2>A História Completa do Rei</h2>
+        <p>Da infância humilde em Mogi das Cruzes ao topo do futebol mundial — leia o artigo completo e apaixonado sobre Neymar Jr., escrito por Kawê Henrique.</p>
+      </div>
+      <a href="artigo.html" class="artigo-cta-btn">
+        <span>Ler Artigo Completo</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
       </a>
-      <a href="https://linkedin.com/in/kawehenri" target="_blank" title="LinkedIn">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-          <rect width="24" height="24" rx="4" fill="#0077B5"/>
-          <path d="M7.75 17H5.5V9.5h2.25V17zM6.625 8.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25zM18.5 17h-2.25v-3.25c0-.78-.01-1.78-1.09-1.78-1.09 0-1.26.85-1.26 1.72V17h-2.25V9.5h2.16v1.03h.03c.3-.57 1.03-1.17 2.12-1.17 2.27 0 2.69 1.5 2.69 3.44V17z" fill="#fff"/>
-        </svg>
-      </a>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">NJR <span>10</span></span>
+        <p>Momentos marcantes da carreira de Neymar Jr</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="#inicio">Início</a>
+        <a href="#carreira">Carreira</a>
+        <a href="#timeline">Linha do Tempo</a>
+        <a href="#curiosidades">Curiosidades</a>
+      </nav>
+      <div class="footer-socials">
+        <a href="https://github.com/kawehenri" target="_blank" title="GitHub" class="social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.48 2.87 8.28 6.84 9.63.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.61-3.37-1.36-3.37-1.36-.45-1.17-1.1-1.48-1.1-1.48-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/kawehenri" target="_blank" title="LinkedIn" class="social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Desenvolvido com paixão por <strong>Kawê Henrique</strong> — 2025</p>
     </div>
   </footer>
 
-  <button id="topo" title="Voltar ao topo">↑</button>
+  <!-- Back to top -->
+  <button id="topo" aria-label="Voltar ao topo" title="Voltar ao topo">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
 
-  <script>
-  // Animação de fade-in nas cards ao carregar
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.card').forEach((card, i) => {
-      card.style.opacity = 0;
-      card.style.transform = 'translateY(40px)';
-      setTimeout(() => {
-        card.style.transition = 'opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1)';
-        card.style.opacity = 1;
-        card.style.transform = 'translateY(0)';
-      }, 200 + i * 120);
-    });
-  });
-
-  // Botão voltar ao topo
-  const topoBtn = document.getElementById('topo');
-  window.addEventListener('scroll', () => {
-    topoBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
-  });
-  topoBtn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
-
-  // Tooltip da timeline
-  const tooltip = document.getElementById('tooltip-timeline');
-  document.querySelectorAll('.timeline-item').forEach(item => {
-    item.addEventListener('mouseenter', e => {
-      tooltip.textContent = item.getAttribute('data-historia');
-      tooltip.style.opacity = 1;
-    });
-    item.addEventListener('mousemove', e => {
-      tooltip.style.left = (e.clientX + 18) + 'px';
-      tooltip.style.top = (e.clientY - 10) + 'px';
-    });
-    item.addEventListener('mouseleave', () => {
-      tooltip.style.opacity = 0;
-    });
-  });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
