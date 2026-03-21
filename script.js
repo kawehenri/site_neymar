@@ -1,6 +1,20 @@
 /* ===================================================
    NEYMAR JR — script.js
    =================================================== */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- IMG FALLBACK + DECODING ---------- */
+(function () {
+  document.querySelectorAll('img').forEach((img) => {
+    if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
+    if (!img.hasAttribute('loading') && !img.id.includes('hero')) img.setAttribute('loading', 'lazy');
+    img.addEventListener('error', () => {
+      if (img.dataset.fallbackApplied) return;
+      img.dataset.fallbackApplied = '1';
+      img.src = 'imgs';
+    });
+  });
+})();
 
 /* ---------- NAVBAR: scroll + toggle ---------- */
 (function () {
@@ -19,16 +33,31 @@
 
   // hamburger toggle
   if (toggle && links) {
+    const setMenuState = (open) => {
+      toggle.classList.toggle('open', open);
+      links.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+
     toggle.addEventListener('click', () => {
-      toggle.classList.toggle('open');
-      links.classList.toggle('open');
+      const isOpen = !links.classList.contains('open');
+      setMenuState(isOpen);
     });
     // close on link click
     links.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
-        toggle.classList.remove('open');
-        links.classList.remove('open');
+        setMenuState(false);
       });
+    });
+
+    // close on ESC and click outside
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && links.classList.contains('open')) setMenuState(false);
+    });
+    document.addEventListener('click', (e) => {
+      const clickInside = links.contains(e.target) || toggle.contains(e.target);
+      if (!clickInside && links.classList.contains('open')) setMenuState(false);
     });
   }
 
@@ -64,14 +93,16 @@
   // pre-load all images
   bgImages.forEach(src => { const i = new Image(); i.src = src; });
 
-  setInterval(() => {
-    current = (current + 1) % bgImages.length;
-    heroImg.style.opacity = '0';
-    setTimeout(() => {
-      heroImg.src = bgImages[current];
-      heroImg.style.opacity = '1';
-    }, 700);
-  }, 5000);
+  if (!prefersReducedMotion) {
+    setInterval(() => {
+      current = (current + 1) % bgImages.length;
+      heroImg.style.opacity = '0';
+      setTimeout(() => {
+        heroImg.src = bgImages[current];
+        heroImg.style.opacity = '1';
+      }, 700);
+    }, 5000);
+  }
 })();
 
 /* ---------- STATS COUNTER ---------- */
@@ -101,6 +132,7 @@
     requestAnimationFrame(tick);
   };
 
+  if (prefersReducedMotion) return;
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -111,6 +143,15 @@
   }, { threshold: 0.5 });
 
   statItems.forEach(item => observer.observe(item));
+})();
+
+/* ---------- PWA SERVICE WORKER ---------- */
+(function () {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    });
+  }
 })();
 
 /* ---------- SCROLL REVEAL ---------- */
@@ -149,3 +190,17 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
+
+/* ---------- Analytics events (no-op se não houver Plausible) ---------- */
+(function () {
+  const track = (name, props) => {
+    if (window.plausible) window.plausible(name, { props });
+  };
+  // CTAs do hero
+  document.querySelectorAll('.hero-ctas a').forEach(a => {
+    a.addEventListener('click', () => track('cta_click', { id: a.textContent.trim() }));
+  });
+  // Botões do artigo CTA no index
+  const artigoBtn = document.querySelector('.artigo-cta-btn');
+  if (artigoBtn) artigoBtn.addEventListener('click', () => track('cta_artigo', {}));
+})(); 

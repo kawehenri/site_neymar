@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página não encontrada — NJR 10</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="hero" style="min-height:60vh; height:60vh;">
+    <div class="hero-bg">
+      <img src="imgs/fundo_index1.jpeg" alt="" class="hero-img" decoding="async">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Erro 404</p>
+      <h1 class="hero-title">Página não encontrada</h1>
+      <p class="hero-subtitle">O link pode estar incorreto ou a página foi movida.</p>
+      <div class="hero-ctas">
+        <a href="index.html" class="btn btn-primary">Voltar ao Início</a>
+        <a href="artigo.html" class="btn btn-outline">Ler o Artigo</a>
+      </div>
+    </div>
+  </section>
+</body>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  }
+</script>
+</html>
