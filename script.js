@@ -1,133 +1,151 @@
-/* ===========================================
-   NEYMAR JR — O REI DO DRIBLE
-   Main Script
-   =========================================== */
+/* ===================================================
+   NEYMAR JR — script.js
+   =================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+/* ---------- NAVBAR: scroll + toggle ---------- */
+(function () {
+  const navbar  = document.getElementById('navbar');
+  const toggle  = document.getElementById('navToggle');
+  const links   = document.getElementById('navLinks');
 
-  /* ------------------------------------------
-     NAVBAR — scroll + mobile toggle
-  ------------------------------------------ */
-  const navbar    = document.getElementById('navbar');
-  const navToggle = document.getElementById('navToggle');
-  const navLinks  = document.getElementById('navLinks');
-
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
-
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('open');
-    navLinks.classList.toggle('open');
-    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
-  });
-
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navToggle.classList.remove('open');
-      navLinks.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
-
-  /* ------------------------------------------
-     SCROLL REVEAL — Intersection Observer
-  ------------------------------------------ */
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = `${(i % 4) * 0.1}s`;
-    revealObserver.observe(el);
-  });
-
-  /* ------------------------------------------
-     STATS COUNTER ANIMATION
-  ------------------------------------------ */
-  function animateCounter(el, target, suffix, duration) {
-    const start = performance.now();
-
-    const tick = (now) => {
-      const elapsed  = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased    = 1 - Math.pow(1 - progress, 3);
-      const current  = Math.round(eased * target);
-
-      el.textContent = current + suffix;
-
-      if (progress < 1) requestAnimationFrame(tick);
+  // scrolled class
+  if (navbar) {
+    const onScroll = () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
     };
-
-    requestAnimationFrame(tick);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
-  const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.stat-item').forEach((item, i) => {
-          const target = parseInt(item.dataset.count, 10);
-          const suffix = item.dataset.suffix || '';
-          const numEl  = item.querySelector('.stat-number');
-
-          setTimeout(() => animateCounter(numEl, target, suffix, 1800), i * 180);
-        });
-        statsObserver.unobserve(entry.target);
-      }
+  // hamburger toggle
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      links.classList.toggle('open');
     });
-  }, { threshold: 0.4 });
+    // close on link click
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        links.classList.remove('open');
+      });
+    });
+  }
 
-  const statsSection = document.querySelector('.stats-section');
-  if (statsSection) statsObserver.observe(statsSection);
-
-  /* ------------------------------------------
-     BACK TO TOP BUTTON
-  ------------------------------------------ */
-  const topoBtn = document.getElementById('topo');
-
-  window.addEventListener('scroll', () => {
-    topoBtn.classList.toggle('visible', window.scrollY > 500);
-  }, { passive: true });
-
-  topoBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  /* ------------------------------------------
-     ACTIVE NAV LINK — highlight on scroll
-  ------------------------------------------ */
-  const sections = document.querySelectorAll('section[id], footer[id]');
-  const navAnchors = navLinks.querySelectorAll('a[href^="#"]');
-
-  const sectionObserver = new IntersectionObserver((entries) => {
+  // active link highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  const observerOpts = { rootMargin: '-40% 0px -50% 0px' };
+  const sectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.id;
         navAnchors.forEach(a => {
-          a.style.color = a.getAttribute('href') === `#${id}` ? 'var(--gold)' : '';
+          a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
         });
       }
     });
-  }, { threshold: 0.45 });
-
+  }, observerOpts);
   sections.forEach(s => sectionObserver.observe(s));
+})();
 
-  /* ------------------------------------------
-     CAREER CARDS — keyboard accessibility
-  ------------------------------------------ */
-  document.querySelectorAll('.career-card').forEach(card => {
-    card.setAttribute('tabindex', '0');
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        const link = card.querySelector('.career-btn');
-        if (link) link.click();
+/* ---------- HERO BACKGROUND ROTATION ---------- */
+(function () {
+  const heroImg = document.getElementById('heroImg');
+  if (!heroImg) return;
+
+  const bgImages = [
+    'imgs/fundo_index1.jpeg',
+    'imgs/fundo_index2.jpeg',
+    'imgs/fundo_index.jpeg',
+  ];
+  let current = 0;
+
+  // pre-load all images
+  bgImages.forEach(src => { const i = new Image(); i.src = src; });
+
+  setInterval(() => {
+    current = (current + 1) % bgImages.length;
+    heroImg.style.opacity = '0';
+    setTimeout(() => {
+      heroImg.src = bgImages[current];
+      heroImg.style.opacity = '1';
+    }, 700);
+  }, 5000);
+})();
+
+/* ---------- STATS COUNTER ---------- */
+(function () {
+  const statItems = document.querySelectorAll('.stat-item');
+  if (!statItems.length) return;
+
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+  const animateStat = (el) => {
+    const target  = parseInt(el.dataset.count, 10);
+    const suffix  = el.dataset.suffix || '';
+    const numEl   = el.querySelector('.stat-number');
+    if (!numEl) return;
+
+    const duration = 1600;
+    const start    = performance.now();
+
+    const tick = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const val = Math.floor(easeOut(progress) * target);
+      numEl.textContent = val + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+      else numEl.textContent = target + suffix;
+    };
+    requestAnimationFrame(tick);
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateStat(entry.target);
+        observer.unobserve(entry.target);
       }
     });
-  });
+  }, { threshold: 0.5 });
 
-});
+  statItems.forEach(item => observer.observe(item));
+})();
+
+/* ---------- SCROLL REVEAL ---------- */
+(function () {
+  const reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        // stagger siblings
+        const siblings = [...entry.target.parentElement.children]
+          .filter(c => c.classList.contains('reveal'));
+        const idx = siblings.indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, idx * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+})();
+
+/* ---------- BACK TO TOP ---------- */
+(function () {
+  const btn = document.getElementById('topo');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
