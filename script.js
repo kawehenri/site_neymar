@@ -191,6 +191,152 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   });
 })();
 
+/* ---------- ECOSSISTEMA DE MARCAS — Modal & Network ---------- */
+(function () {
+  const marcasData = {
+    'nr-sports': {
+      icon: '🏢',
+      badge: 'Gestão & Negócios',
+      color: '#60a5fa',
+      image: 'imgs/nr.jpeg',
+      title: 'NR Sports',
+      desc: 'Fundada por Neymar Pai, a NR Sports é o coração empresarial de todo o ecossistema Neymar. A empresa controla contratos publicitários, gestão de imagem, parcerias globais e todas as decisões de negócio do atleta.',
+      details: [
+        'Fundada e liderada pelo pai de Neymar',
+        'Gestão de mais de 30 contratos publicitários globais',
+        'Hub central conectando todas as marcas NJR',
+        'Parceiros estratégicos: Puma, Red Bull e outros'
+      ],
+      tags: ['Contratos', 'Imagem', 'Negócios', 'Parcerias']
+    },
+    'puma': {
+      icon: '🐆',
+      badge: 'Marca Global',
+      color: '#00e676',
+      image: 'imgs/puma.jpeg',
+      title: 'PUMA × Neymar',
+      desc: 'Desde 2020, Neymar é o embaixador global da Puma. A parceria resultou em coleções icônicas como NJR Creativity e NJR Copa, unindo performance esportiva com estética urbana e lifestyle.',
+      details: [
+        'Embaixador global da Puma desde 2020',
+        'Coleção NJR Creativity — moda + futebol',
+        'Coleção NJR Copa — estilo brasileiro',
+        'Parceria que vai muito além das quatro linhas'
+      ],
+      tags: ['NJR Creativity', 'NJR Copa', 'Lifestyle', 'Moda Esportiva']
+    },
+    'njr-brand': {
+      icon: '👑',
+      badge: 'Identidade Pessoal',
+      color: '#f0c040',
+      image: 'imgs/njr.jpeg',
+      title: 'NJR Brand',
+      desc: 'O branding pessoal de Neymar Jr. — três letras que representam uma identidade única no futebol mundial. A marca NJR aparece em roupas, chuteiras e coleções exclusivas, carregando a essência do futebol de rua brasileiro.',
+      details: [
+        'Identidade visual reconhecida mundialmente',
+        'Presente em roupas e chuteiras exclusivas',
+        'Coleções co-criadas em parceria com a Puma',
+        'Representa estilo, criatividade e o futebol de rua'
+      ],
+      tags: ['Roupas', 'Chuteiras', 'Futebol de Rua', 'Cultura Brasileira']
+    },
+    'njr-eyewear': {
+      icon: '🕶️',
+      badge: 'Lifestyle & Moda',
+      color: '#c084fc',
+      image: 'imgs/oculos.jpeg',
+      title: 'NJR Eyewear',
+      desc: 'Criada em parceria com a NR Sports, a NJR Eyewear expande o universo de Neymar para além do futebol. A linha une design premium, identidade pessoal do atleta e posicionamento no mercado de luxo e moda global.',
+      details: [
+        'Design premium com identidade própria',
+        'Co-criada com a NR Sports',
+        'Posicionamento no mercado de luxo',
+        'Expande Neymar ao universo fashion global'
+      ],
+      tags: ['Moda', 'Luxo', 'Fashion', 'Estilo']
+    }
+  };
+
+  const modal = document.getElementById('marcasModal');
+  if (!modal) return;
+
+  const backdrop = modal.querySelector('.marcas-modal-bd');
+  const closeBtn = modal.querySelector('.marcas-modal-x');
+
+  function openModal(id) {
+    const d = marcasData[id];
+    if (!d) return;
+
+    modal.querySelector('#mModalIcon').textContent = d.icon;
+
+    const badge = modal.querySelector('#mModalBadge');
+    badge.textContent = d.badge;
+    badge.style.borderColor = d.color;
+    badge.style.color = d.color;
+
+    modal.querySelector('#mModalTitle').textContent = d.title;
+    modal.querySelector('#mModalDesc').textContent  = d.desc;
+
+    const media = modal.querySelector('#mModalMedia');
+    if (media) {
+      if (d.image) {
+        media.innerHTML = `<img src="${d.image}" alt="${d.title}" decoding="async" loading="lazy">`;
+      } else {
+        media.innerHTML = '';
+      }
+    }
+
+    modal.querySelector('#mModalList').innerHTML =
+      d.details.map(t => `<li><span aria-hidden="true">✦</span>${t}</li>`).join('');
+
+    modal.querySelector('#mModalTags').innerHTML =
+      d.tags.map(t => `<span>${t}</span>`).join('');
+
+    modal.style.setProperty('--modal-accent', d.color);
+    modal.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => requestAnimationFrame(() => modal.classList.add('open')));
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    setTimeout(() => {
+      modal.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }, 350);
+  }
+
+  // Open via data-modal buttons (event delegation)
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-modal]');
+    if (btn) openModal(btn.dataset.modal);
+  });
+
+  // Close via backdrop / close button
+  backdrop.addEventListener('click', closeModal);
+  closeBtn.addEventListener('click',  closeModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal();
+  });
+
+  /* --- Network fade-in on scroll --- */
+  const network = document.getElementById('marcasNetwork');
+  if (network) {
+    if (prefersReducedMotion) {
+      network.classList.add('net-visible');
+    } else {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            network.classList.add('net-visible');
+            obs.unobserve(network);
+          }
+        });
+      }, { threshold: 0.25 });
+      obs.observe(network);
+    }
+  }
+})();
+
 /* ---------- Analytics events (no-op se não houver Plausible) ---------- */
 (function () {
   const track = (name, props) => {
