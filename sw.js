@@ -1,4 +1,4 @@
-const CACHE_STATIC = "njr10-static-v3";
+const CACHE_STATIC = "njr10-static-v4";
 const CACHE_PAGES = "njr10-pages-v3";
 const CACHE_IMAGES = "njr10-images-v3";
 const STATIC_ASSETS = [
@@ -8,10 +8,14 @@ const STATIC_ASSETS = [
   "./offline.html",
   "./artigo.html",
   "./especial.html",
+  "./sobre.html",
+  "./contato.html",
   "./css/styles.css",
   "./css/artigo.css",
   "./css/especial.css",
+  "./css/paginas.css",
   "./js/script.js",
+  "./js/contato-form.js",
   "./manifest.webmanifest",
   "./imgs/fundo_index1.jpeg",
   "./imgs/fundo_artigo1.jpeg",

@@ -1,0 +1,250 @@
+/* ===================================================
+   Páginas secundárias — Sobre / Contato
+   =================================================== */
+
+.site-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--dark);
+}
+
+.site-page-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  height: 64px;
+  background: rgba(11,11,11,.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.site-page-nav a.site-page-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .06em;
+}
+.site-page-nav a.site-page-logo img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+.site-page-nav a.site-page-logo span { color: var(--gold); }
+.site-page-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px 20px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.site-page-nav-links a {
+  font-size: .84rem;
+  font-weight: 500;
+  color: rgba(255,255,255,.75);
+  transition: color var(--trans);
+}
+.site-page-nav-links a:hover { color: var(--gold); }
+
+.site-page-main {
+  flex: 1;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 5vw 80px;
+}
+
+.site-page-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.site-page-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 28px;
+}
+
+/* ----- Sobre ----- */
+.sobre-perfil-wrap {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #000;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 0 6px rgba(240,192,64,.12), 0 16px 48px rgba(0,0,0,.5);
+}
+.sobre-perfil-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+.sobre-perfil-wrap .img-bg {
+  object-fit: cover !important;
+  filter: blur(16px) brightness(0.45) !important;
+  transform: scale(1.12) !important;
+  z-index: 0 !important;
+}
+
+.sobre-texto p {
+  font-size: 1.02rem;
+  color: rgba(232,232,232,.85);
+  line-height: 1.85;
+  margin-bottom: 18px;
+}
+.sobre-texto p:last-child { margin-bottom: 0; }
+.sobre-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.sobre-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,.15);
+  font-size: .85rem;
+  color: var(--text);
+  transition: border-color var(--trans), background var(--trans), color var(--trans);
+}
+.sobre-links a:hover {
+  border-color: var(--gold);
+  background: rgba(240,192,64,.08);
+  color: var(--gold);
+}
+
+/* ----- Contato ----- */
+.contato-intro {
+  font-size: .98rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contact-form label {
+  display: block;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 8px;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: var(--card-bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color var(--trans), box-shadow var(--trans);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(240,192,64,.15);
+}
+.contact-form textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+.contact-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.contact-form-status {
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: .9rem;
+  line-height: 1.5;
+  display: none;
+}
+.contact-form-status.is-visible { display: block; }
+.contact-form-status--ok {
+  background: rgba(0,180,90,.12);
+  border: 1px solid rgba(0,200,100,.35);
+  color: #7dffb3;
+}
+.contact-form-status--err {
+  background: rgba(220,60,60,.12);
+  border: 1px solid rgba(255,100,100,.35);
+  color: #ff9a9a;
+}
+.btn-contact-submit {
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 50px;
+  background: var(--gold);
+  color: #000;
+  font-family: 'Oswald', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  cursor: pointer;
+  transition: background var(--trans), transform var(--trans), box-shadow var(--trans);
+}
+.btn-contact-submit:hover:not(:disabled) {
+  background: #d4a800;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(240,192,64,.35);
+}
+.btn-contact-submit:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.site-page-footer {
+  padding: 24px 5vw;
+  border-top: 1px solid rgba(255,255,255,.06);
+  text-align: center;
+}
+.site-page-footer p {
+  font-size: .8rem;
+  color: var(--muted);
+}
+.site-page-footer a { color: var(--gold); }
+.site-page-footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .site-page-nav-links { gap: 8px 14px; }
+  .site-page-nav-links a { font-size: .8rem; }
+}
