@@ -1,19 +1,20 @@
-const CACHE_STATIC = "njr10-static-v2";
-const CACHE_PAGES = "njr10-pages-v2";
-const CACHE_IMAGES = "njr10-images-v2";
+const CACHE_STATIC = "njr10-static-v3";
+const CACHE_PAGES = "njr10-pages-v3";
+const CACHE_IMAGES = "njr10-images-v3";
 const STATIC_ASSETS = [
   "./",
   "./index.html",
   "./404.html",
   "./offline.html",
   "./artigo.html",
-  "./styles.css",
-  "./artigo.css",
-  "./script.js",
+  "./especial.html",
+  "./css/styles.css",
+  "./css/artigo.css",
+  "./css/especial.css",
+  "./js/script.js",
   "./manifest.webmanifest",
   "./imgs/fundo_index1.jpeg",
   "./imgs/fundo_artigo1.jpeg",
-  "./imgs"
 ];
 
 self.addEventListener("install", (event) => {

@@ -10,14 +10,16 @@
   "theme_color": "#0b0b0b",
   "icons": [
     {
-      "src": "img",
-      "sizes": "192x192",
-      "type": "image/jpeg"
+      "src": "imgs/logo_Neymar.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "imgs",
-      "sizes": "512x512",
-      "type": "image/jpeg"
+      "src": "imgs/logo_Neymar.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

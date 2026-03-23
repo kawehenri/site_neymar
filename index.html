@@ -17,12 +17,14 @@
   <meta name="twitter:description" content="Momentos marcantes, linha do tempo e curiosidades sobre o craque brasileiro.">
   <meta name="twitter:image" content="https://aquafloww.site/site_neymar/imgs/fundo_index1.jpeg">
   <link rel="canonical" href="https://aquafloww.site/site_neymar/index.html">
+  <link rel="icon" type="image/png" href="imgs/logo_Neymar.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="imgs/logo_Neymar.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="preload" as="image" href="imgs/fundo_index1.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,7 +43,10 @@
   <!-- ====== NAVBAR ====== -->
   <nav id="navbar">
     <div class="nav-container">
-      <a class="nav-logo" href="#">NJR <span>10</span></a>
+      <a class="nav-logo" href="#inicio">
+        <img src="imgs/logo_Neymar.png" alt="" class="nav-logo-img" width="40" height="40" decoding="async">
+        <span class="nav-logo-text">NJR <span>10</span></span>
+      </a>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
@@ -387,6 +392,7 @@
     <div class="marcas-hero">
       <div class="marcas-hero-glow"></div>
       <div class="marcas-hero-content">
+        <img src="imgs/logo_Neymar.png" alt="" class="marcas-hero-logo" width="72" height="72" loading="lazy" decoding="async">
         <p class="section-eyebrow">UNIVERSO NJR</p>
         <h2 class="marcas-hero-title">Muito além do futebol</h2>
         <p class="marcas-hero-sub">Conheça o universo de marcas que constroem o legado de Neymar Jr.</p>
@@ -400,8 +406,10 @@
         <!-- NR Sports -->
         <article class="marca-card reveal" style="--ca:#60a5fa">
           <div class="marca-top-bar"></div>
+          <div class="marca-thumb-wrap">
+            <img src="imgs/nr.jpeg" alt="NR Sports" loading="lazy" decoding="async">
+          </div>
           <div class="marca-card-head">
-            <span class="marca-icon" aria-hidden="true">🏢</span>
             <span class="marca-badge">Gestão & Negócios</span>
           </div>
           <h3 class="marca-title">NR Sports</h3>
@@ -418,8 +426,10 @@
         <!-- Puma -->
         <article class="marca-card reveal" style="--ca:#00e676">
           <div class="marca-top-bar"></div>
+          <div class="marca-thumb-wrap">
+            <img src="imgs/puma.jpeg" alt="PUMA × Neymar" loading="lazy" decoding="async">
+          </div>
           <div class="marca-card-head">
-            <span class="marca-icon" aria-hidden="true">🐆</span>
             <span class="marca-badge">Marca Global</span>
           </div>
           <h3 class="marca-title">PUMA × Neymar</h3>
@@ -436,8 +446,10 @@
         <!-- NJR Brand -->
         <article class="marca-card reveal" style="--ca:#f0c040">
           <div class="marca-top-bar"></div>
+          <div class="marca-thumb-wrap">
+            <img src="imgs/njr.jpeg" alt="Marca NJR" loading="lazy" decoding="async">
+          </div>
           <div class="marca-card-head">
-            <span class="marca-icon" aria-hidden="true">👑</span>
             <span class="marca-badge">Identidade</span>
           </div>
           <h3 class="marca-title">NJR</h3>
@@ -454,8 +466,10 @@
         <!-- NJR Eyewear -->
         <article class="marca-card reveal" style="--ca:#c084fc">
           <div class="marca-top-bar"></div>
+          <div class="marca-thumb-wrap">
+            <img src="imgs/oculos.jpeg" alt="NJR Eyewear" loading="lazy" decoding="async">
+          </div>
           <div class="marca-card-head">
-            <span class="marca-icon" aria-hidden="true">🕶️</span>
             <span class="marca-badge">Lifestyle</span>
           </div>
           <h3 class="marca-title">NJR Eyewear</h3>
@@ -497,19 +511,27 @@
         </div>
         <!-- Peripheral Nodes -->
         <div class="net-node n-top">
-          <div class="net-nc" style="--nc:#60a5fa">🏢</div>
+          <div class="net-nc net-nc-brand" style="--nc:#60a5fa">
+            <img src="imgs/nr.jpeg" alt="" loading="lazy" decoding="async">
+          </div>
           <p>NR Sports</p>
         </div>
         <div class="net-node n-right">
-          <div class="net-nc" style="--nc:#00e676">🐆</div>
+          <div class="net-nc net-nc-brand" style="--nc:#00e676">
+            <img src="imgs/puma.jpeg" alt="" loading="lazy" decoding="async">
+          </div>
           <p>PUMA</p>
         </div>
         <div class="net-node n-bottom">
-          <div class="net-nc" style="--nc:#f0c040">👑</div>
+          <div class="net-nc net-nc-brand" style="--nc:#f0c040">
+            <img src="imgs/njr.jpeg" alt="" loading="lazy" decoding="async">
+          </div>
           <p>NJR Brand</p>
         </div>
         <div class="net-node n-left">
-          <div class="net-nc" style="--nc:#c084fc">🕶️</div>
+          <div class="net-nc net-nc-brand" style="--nc:#c084fc">
+            <img src="imgs/oculos.jpeg" alt="" loading="lazy" decoding="async">
+          </div>
           <p>Eyewear</p>
         </div>
       </div>
@@ -553,7 +575,10 @@
   <footer id="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <span class="footer-logo">NJR <span>10</span></span>
+        <div class="footer-logo-row">
+          <img src="imgs/logo_Neymar.png" alt="" class="footer-logo-img" width="48" height="48" loading="lazy" decoding="async">
+          <span class="footer-logo">NJR <span>10</span></span>
+        </div>
         <p>Momentos marcantes da carreira de Neymar Jr</p>
       </div>
       <nav class="footer-nav">
@@ -583,6 +608,6 @@
     <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
   </button>
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
