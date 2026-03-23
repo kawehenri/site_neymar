@@ -5,18 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neymar Jr — O Rei do Drible</title>
   <meta name="description" content="Site tributo a Neymar Jr — momentos marcantes, linha do tempo e curiosidades sobre o craque brasileiro.">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aquafloww.site/site_neymar/index.html">
+  <meta property="og:title" content="Neymar Jr — O Rei do Drible">
+  <meta property="og:description" content="Momentos marcantes, linha do tempo e curiosidades sobre o craque brasileiro.">
+  <meta property="og:image" content="https://aquafloww.site/site_neymar/imgs/fundo_index1.jpeg">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Neymar Jr — O Rei do Drible">
+  <meta name="twitter:description" content="Momentos marcantes, linha do tempo e curiosidades sobre o craque brasileiro.">
+  <meta name="twitter:image" content="https://aquafloww.site/site_neymar/imgs/fundo_index1.jpeg">
+  <link rel="canonical" href="https://aquafloww.site/site_neymar/index.html">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" as="image" href="imgs/fundo_index1.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Neymar Jr — O Rei do Drible",
+      "description": "Site tributo com trajetória, linha do tempo e curiosidades sobre Neymar Jr.",
+      "inLanguage": "pt-BR"
+    }
+  </script>
+  <!-- Analytics (opcional, funciona se você possuir conta no Plausible) -->
+  <script defer data-domain="aquafloww.site" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
+  <a href="#inicio" class="skip-link">Pular para o conteúdo principal</a>
 
   <!-- ====== NAVBAR ====== -->
   <nav id="navbar">
     <div class="nav-container">
       <a class="nav-logo" href="#">NJR <span>10</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
@@ -24,6 +50,8 @@
         <li><a href="#carreira">Carreira</a></li>
         <li><a href="#timeline">Linha do Tempo</a></li>
         <li><a href="#curiosidades">Curiosidades</a></li>
+        <li><a href="#marcas">Marcas</a></li>
+        <li><a href="especial.html">Especial</a></li>
         <li><a href="artigo.html" class="nav-link-artigo">Artigo</a></li>
       </ul>
     </div>
@@ -32,7 +60,7 @@
   <!-- ====== HERO ====== -->
   <section class="hero" id="inicio">
     <div class="hero-bg">
-      <img src="/imgs/Neymar Jr 💗.jpg" alt="Neymar Jr" class="hero-img">
+      <img src="imgs/fundo_index1.jpeg" alt="Neymar Jr" class="hero-img" id="heroImg" fetchpriority="high" decoding="async">
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
@@ -56,7 +84,7 @@
         <span class="stat-number">0</span>
         <span class="stat-label">Gols pela Seleção</span>
       </div>
-      <div class="stat-item" data-count="3" data-suffix="">
+      <div class="stat-item" data-count="4" data-suffix="">
         <span class="stat-number">0</span>
         <span class="stat-label">Grandes Clubes</span>
       </div>
@@ -82,13 +110,13 @@
 
       <div class="career-card reveal">
         <div class="career-card-inner">
-          <img src="/imgs/real.jpeg" alt="Neymar e o Real Madrid na infância">
+          <img src="imgs/infancia.jpeg" alt="Neymar na infância" loading="lazy" decoding="async">
           <div class="career-overlay">
             <div class="career-content">
               <span class="career-badge">Infância</span>
               <h3>Quase no Real Madrid</h3>
               <p>O jovem Neymar quase assinou pelo Real Madrid antes de optar por crescer no Brasil, trilhando seu próprio caminho.</p>
-              <a href="https://youtu.be/ZowoTQy8T9M?feature=shared" target="_blank" class="career-btn">
+              <a href="https://youtu.be/ZowoTQy8T9M?feature=shared" target="_blank" rel="noopener noreferrer" class="career-btn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
                 Ver no YouTube
               </a>
@@ -99,13 +127,13 @@
 
       <div class="career-card reveal">
         <div class="career-card-inner">
-          <img src="/imgs/santos.jpeg" alt="Neymar no Santos">
+          <img src="imgs/santos.jpeg" alt="Neymar no Santos" loading="lazy" decoding="async">
           <div class="career-overlay">
             <div class="career-content">
               <span class="career-badge">2009 – 2013</span>
               <h3>Santos FC</h3>
               <p>Onde tudo começou. O jovem craque encantou o Brasil e conquistou a Libertadores em 2011 com apenas 19 anos.</p>
-              <a href="https://youtu.be/IPoupsx3XXM?feature=shared" target="_blank" class="career-btn">
+              <a href="https://youtu.be/IPoupsx3XXM?feature=shared" target="_blank" rel="noopener noreferrer" class="career-btn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
                 Ver no YouTube
               </a>
@@ -116,13 +144,13 @@
 
       <div class="career-card reveal">
         <div class="career-card-inner">
-          <img src="/imgs/barça.jpeg" alt="Neymar no Barcelona">
+          <img src="imgs/barca1.jpeg" alt="Neymar no Barcelona" loading="lazy" decoding="async">
           <div class="career-overlay">
             <div class="career-content">
               <span class="career-badge">2013 – 2017</span>
               <h3>FC Barcelona</h3>
               <p>O trio MSN com Messi e Suárez formou o ataque mais letal do mundo, conquistando a Champions League em 2015.</p>
-              <a href="https://youtu.be/gHlaFLsCrTw?feature=shared" target="_blank" class="career-btn">
+              <a href="https://youtu.be/gHlaFLsCrTw?feature=shared" target="_blank" rel="noopener noreferrer" class="career-btn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
                 Ver no YouTube
               </a>
@@ -133,13 +161,13 @@
 
       <div class="career-card reveal">
         <div class="career-card-inner">
-          <img src="/imgs/psg.jpeg" alt="Neymar no PSG">
+          <img src="imgs/psg1.jpeg" alt="Neymar no PSG" loading="lazy" decoding="async">
           <div class="career-overlay">
             <div class="career-content">
               <span class="career-badge">2017 – 2023</span>
               <h3>Paris Saint-Germain</h3>
               <p>Transferência de €222 milhões — recorde mundial absoluto. Neymar liderou o PSG à final da Champions League em 2020.</p>
-              <a href="https://youtu.be/paPNWIgWBTI?feature=shared" target="_blank" class="career-btn">
+              <a href="https://youtu.be/paPNWIgWBTI?feature=shared" target="_blank" rel="noopener noreferrer" class="career-btn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
                 Ver no YouTube
               </a>
@@ -150,13 +178,13 @@
 
       <div class="career-card reveal">
         <div class="career-card-inner">
-          <img src="/imgs/brasil.jpeg" alt="Neymar na Seleção Brasileira">
+          <img src="imgs/brasil1.jpeg" alt="Neymar na Seleção Brasileira" loading="lazy" decoding="async">
           <div class="career-overlay">
             <div class="career-content">
               <span class="career-badge">Seleção</span>
               <h3>Brasil</h3>
               <p>Campeão olímpico em 2016 e maior artilheiro da história da Seleção Brasileira, com mais de 79 gols marcados.</p>
-              <a href="https://youtu.be/E8HDMaVYy8Y?feature=shared" target="_blank" class="career-btn">
+              <a href="https://youtu.be/E8HDMaVYy8Y?feature=shared" target="_blank" rel="noopener noreferrer" class="career-btn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
                 Ver no YouTube
               </a>
@@ -167,13 +195,13 @@
 
       <div class="career-card career-card-featured reveal">
         <div class="career-card-inner">
-          <img src="/imgs/Neymar Jr 💗.jpg" alt="Documentário Neymar Jr">
+          <img src="imgs/neymar1.jpg" alt="Documentário Neymar Jr" loading="lazy" decoding="async">
           <div class="career-overlay">
             <div class="career-content">
               <span class="career-badge career-badge-gold">Documentário</span>
               <h3>A História Completa</h3>
               <p>Da humildade de Mogi das Cruzes ao topo do futebol mundial — a trajetória completa e emocionante de Neymar Jr.</p>
-              <a href="https://youtu.be/AsP_tYV5FyQ?feature=shared" target="_blank" class="career-btn career-btn-gold">
+              <a href="https://youtu.be/AsP_tYV5FyQ?feature=shared" target="_blank" rel="noopener noreferrer" class="career-btn career-btn-gold">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
                 Ver Documentário
               </a>
@@ -198,7 +226,7 @@
       <div class="tl-entry reveal" data-side="left">
         <div class="tl-card">
           <div class="tl-img-wrap">
-            <img src="/imgs/santos.jpeg" alt="Santos FC">
+            <img src="imgs/santos2.jpeg" alt="Santos FC" loading="lazy" decoding="async">
             <span class="tl-year">2009</span>
           </div>
           <div class="tl-body">
@@ -206,8 +234,8 @@
             <p>Assina seu primeiro contrato profissional e em poucos meses se torna a maior revelação do futebol brasileiro, encantando multidões com dribles desconcertantes.</p>
             <ul class="tl-list">
               <li>Libertadores 2011</li>
-              <li>2× Campeonato Brasileiro</li>
               <li>Copa do Brasil 2010</li>
+              <li>2× Melhor da América</li>
             </ul>
           </div>
         </div>
@@ -220,7 +248,7 @@
         <div class="tl-dot-col"><div class="tl-dot"></div></div>
         <div class="tl-card">
           <div class="tl-img-wrap">
-            <img src="/imgs/barça.jpeg" alt="FC Barcelona">
+            <img src="imgs/barca2.jpeg" alt="FC Barcelona" loading="lazy" decoding="async">
             <span class="tl-year">2013</span>
           </div>
           <div class="tl-body">
@@ -238,7 +266,7 @@
       <div class="tl-entry reveal" data-side="left">
         <div class="tl-card">
           <div class="tl-img-wrap">
-            <img src="/imgs/brasil.jpeg" alt="Ouro Olímpico">
+            <img src="imgs/olimpiadas1.jpeg" alt="Ouro Olímpico Rio 2016" loading="lazy" decoding="async">
             <span class="tl-year">2016</span>
           </div>
           <div class="tl-body">
@@ -259,7 +287,7 @@
         <div class="tl-dot-col"><div class="tl-dot"></div></div>
         <div class="tl-card">
           <div class="tl-img-wrap">
-            <img src="/imgs/psg.jpeg" alt="Paris Saint-Germain">
+            <img src="imgs/a_chegada.jpeg" alt="Paris Saint-Germain" loading="lazy" decoding="async">
             <span class="tl-year">2017</span>
           </div>
           <div class="tl-body">
@@ -272,6 +300,26 @@
             </ul>
           </div>
         </div>
+      </div>
+
+      <div class="tl-entry reveal" data-side="left">
+        <div class="tl-card">
+          <div class="tl-img-wrap">
+            <img src="imgs/santos_volta1.jpeg" alt="Retorno ao Santos 2025" loading="lazy" decoding="async">
+            <span class="tl-year">2025</span>
+          </div>
+          <div class="tl-body">
+            <h3>Retorno ao Santos</h3>
+            <p>O filho pródigo volta para casa. Após passagem pelo Al-Hilal e uma grave lesão no joelho, Neymar retorna ao clube que o revelou e reencontra a torcida que nunca deixou de amá-lo.</p>
+            <ul class="tl-list">
+              <li>Retorno ao Brasil</li>
+              <li>Reencontro com a torcida</li>
+              <li>O futebol arte continua</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-spacer"></div>
       </div>
 
     </div>
@@ -307,7 +355,7 @@
       <div class="curio-card reveal">
         <div class="curio-icon">🥇</div>
         <h4>Herói Olímpico</h4>
-        <p>Decidiu o ouro olímpico de 2016 com o golaço nos pênaltis no Maracanã, encerrando um jejum histórico do Brasil.</p>
+        <p>Decidiu o ouro olímpico de 2016 com o pênalti decisivo no Maracanã, encerrando um jejum histórico do Brasil.</p>
       </div>
 
       <div class="curio-card reveal">
@@ -320,16 +368,170 @@
         <div class="curio-icon">🎬</div>
         <h4>Todos os Gols pela Seleção</h4>
         <p>Assista ao compilado de todos os gols históricos de Neymar defendendo o Brasil.</p>
-        <a href="https://youtu.be/uxwhdEsambY?feature=shared" target="_blank" class="curio-watch-btn">
+        <a href="https://youtu.be/uxwhdEsambY?feature=shared" target="_blank" rel="noopener noreferrer" class="curio-watch-btn">
           <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"/></svg>
           Assistir no YouTube
         </a>
         <div class="curio-thumb-wrap">
-          <img src="/imgs/Neymar Jr.jpg" alt="Neymar pela Seleção" class="curio-thumb">
+          <img src="imgs/brasil1.jpeg" alt="Neymar pela Seleção" class="curio-thumb" loading="lazy" decoding="async">
         </div>
       </div>
 
     </div>
+  </section>
+
+  <!-- ====== ECOSSISTEMA DE MARCAS ====== -->
+  <section class="marcas-section" id="marcas">
+
+    <!-- Mini Hero Banner -->
+    <div class="marcas-hero">
+      <div class="marcas-hero-glow"></div>
+      <div class="marcas-hero-content">
+        <p class="section-eyebrow">UNIVERSO NJR</p>
+        <h2 class="marcas-hero-title">Muito além do futebol</h2>
+        <p class="marcas-hero-sub">Conheça o universo de marcas que constroem o legado de Neymar Jr.</p>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="marcas-cards-outer">
+      <div class="marcas-cards-grid">
+
+        <!-- NR Sports -->
+        <article class="marca-card reveal" style="--ca:#60a5fa">
+          <div class="marca-top-bar"></div>
+          <div class="marca-card-head">
+            <span class="marca-icon" aria-hidden="true">🏢</span>
+            <span class="marca-badge">Gestão & Negócios</span>
+          </div>
+          <h3 class="marca-title">NR Sports</h3>
+          <p class="marca-desc">Empresa responsável pela gestão da carreira, imagem e negócios de Neymar Jr., conectando marcas globais ao atleta.</p>
+          <div class="marca-tags">
+            <span>Contratos</span><span>Imagem</span><span>Negócios</span>
+          </div>
+          <button class="marca-btn" data-modal="nr-sports">
+            Ver Detalhes
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+        </article>
+
+        <!-- Puma -->
+        <article class="marca-card reveal" style="--ca:#00e676">
+          <div class="marca-top-bar"></div>
+          <div class="marca-card-head">
+            <span class="marca-icon" aria-hidden="true">🐆</span>
+            <span class="marca-badge">Marca Global</span>
+          </div>
+          <h3 class="marca-title">PUMA × Neymar</h3>
+          <p class="marca-desc">Parceria global que une performance e lifestyle, com coleções exclusivas como NJR Creativity e NJR Copa.</p>
+          <div class="marca-tags">
+            <span>NJR Creativity</span><span>NJR Copa</span><span>Lifestyle</span>
+          </div>
+          <button class="marca-btn" data-modal="puma">
+            Ver Detalhes
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+        </article>
+
+        <!-- NJR Brand -->
+        <article class="marca-card reveal" style="--ca:#f0c040">
+          <div class="marca-top-bar"></div>
+          <div class="marca-card-head">
+            <span class="marca-icon" aria-hidden="true">👑</span>
+            <span class="marca-badge">Identidade</span>
+          </div>
+          <h3 class="marca-title">NJR</h3>
+          <p class="marca-desc">A identidade pessoal de Neymar traduzida em estilo, criatividade e cultura do futebol brasileiro.</p>
+          <div class="marca-tags">
+            <span>Roupas</span><span>Chuteiras</span><span>Cultura</span>
+          </div>
+          <button class="marca-btn" data-modal="njr-brand">
+            Ver Detalhes
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+        </article>
+
+        <!-- NJR Eyewear -->
+        <article class="marca-card reveal" style="--ca:#c084fc">
+          <div class="marca-top-bar"></div>
+          <div class="marca-card-head">
+            <span class="marca-icon" aria-hidden="true">🕶️</span>
+            <span class="marca-badge">Lifestyle</span>
+          </div>
+          <h3 class="marca-title">NJR Eyewear</h3>
+          <p class="marca-desc">Linha de óculos que leva o estilo de Neymar para o universo da moda e lifestyle global.</p>
+          <div class="marca-tags">
+            <span>Moda</span><span>Estilo</span><span>Fashion</span>
+          </div>
+          <button class="marca-btn" data-modal="njr-eyewear">
+            Ver Detalhes
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Network Hub Visualization -->
+    <div class="marcas-net-outer">
+      <p class="section-eyebrow" style="margin-bottom:8px">CONEXÃO DAS MARCAS</p>
+      <h3 class="marcas-net-title">NR Sports — O Hub Central</h3>
+      <p class="marcas-net-sub">Todas as marcas convergem para um único ecossistema</p>
+      <div class="marcas-net" id="marcasNetwork">
+        <svg class="marcas-net-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line class="net-line" x1="180" y1="180" x2="180" y2="52"  stroke="#60a5fa" stroke-width="1.5" stroke-opacity=".65"/>
+          <line class="net-line" x1="180" y1="180" x2="308" y2="180" stroke="#00e676" stroke-width="1.5" stroke-opacity=".65"/>
+          <line class="net-line" x1="180" y1="180" x2="180" y2="308" stroke="#f0c040" stroke-width="1.5" stroke-opacity=".65"/>
+          <line class="net-line" x1="180" y1="180" x2="52"  y2="180" stroke="#c084fc" stroke-width="1.5" stroke-opacity=".65"/>
+          <circle class="net-dot" cx="180" cy="52"  r="5" fill="#60a5fa"/>
+          <circle class="net-dot" cx="308" cy="180" r="5" fill="#00e676"/>
+          <circle class="net-dot" cx="180" cy="308" r="5" fill="#f0c040"/>
+          <circle class="net-dot" cx="52"  cy="180" r="5" fill="#c084fc"/>
+        </svg>
+        <!-- Center Node -->
+        <div class="net-center">
+          <span class="net-njr">NJR</span>
+          <span class="net-10">10</span>
+          <span class="net-ring r1"></span>
+          <span class="net-ring r2"></span>
+        </div>
+        <!-- Peripheral Nodes -->
+        <div class="net-node n-top">
+          <div class="net-nc" style="--nc:#60a5fa">🏢</div>
+          <p>NR Sports</p>
+        </div>
+        <div class="net-node n-right">
+          <div class="net-nc" style="--nc:#00e676">🐆</div>
+          <p>PUMA</p>
+        </div>
+        <div class="net-node n-bottom">
+          <div class="net-nc" style="--nc:#f0c040">👑</div>
+          <p>NJR Brand</p>
+        </div>
+        <div class="net-node n-left">
+          <div class="net-nc" style="--nc:#c084fc">🕶️</div>
+          <p>Eyewear</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="marcasModal" class="marcas-modal" role="dialog" aria-modal="true" aria-labelledby="mModalTitle" hidden>
+      <div class="marcas-modal-bd"></div>
+      <div class="marcas-modal-box">
+        <button class="marcas-modal-x" aria-label="Fechar modal">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+        <div id="mModalIcon" class="marcas-modal-icon"></div>
+        <span id="mModalBadge" class="marcas-modal-badge"></span>
+        <h3 id="mModalTitle" class="marcas-modal-title"></h3>
+        <p id="mModalDesc" class="marcas-modal-desc"></p>
+        <div id="mModalMedia" class="marcas-modal-media"></div>
+        <ul id="mModalList" class="marcas-modal-list"></ul>
+        <div id="mModalTags" class="marcas-modal-ftags"></div>
+      </div>
+    </div>
+
   </section>
 
   <!-- ====== ARTIGO CTA ====== -->
@@ -337,7 +539,7 @@
     <div class="artigo-cta-inner reveal">
       <div class="artigo-cta-text">
         <span class="artigo-cta-tag">Leitura Especial</span>
-        <h2>A História Completa do Rei</h2>
+        <h2>A História Completa do Príncipe</h2>
         <p>Da infância humilde em Mogi das Cruzes ao topo do futebol mundial — leia o artigo completo e apaixonado sobre Neymar Jr., escrito por Kawê Henrique.</p>
       </div>
       <a href="artigo.html" class="artigo-cta-btn">
@@ -359,12 +561,14 @@
         <a href="#carreira">Carreira</a>
         <a href="#timeline">Linha do Tempo</a>
         <a href="#curiosidades">Curiosidades</a>
+        <a href="#marcas">Marcas</a>
+        <a href="especial.html">Especial</a>
       </nav>
       <div class="footer-socials">
-        <a href="https://github.com/kawehenri" target="_blank" title="GitHub" class="social-link">
+        <a href="https://github.com/kawehenri" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-link">
           <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.48 2.87 8.28 6.84 9.63.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.61-3.37-1.36-3.37-1.36-.45-1.17-1.1-1.48-1.1-1.48-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
         </a>
-        <a href="https://linkedin.com/in/kawehenri" target="_blank" title="LinkedIn" class="social-link">
+        <a href="https://linkedin.com/in/kawehenri" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-link">
           <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
       </div>
