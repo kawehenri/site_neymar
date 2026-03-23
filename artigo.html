@@ -872,6 +872,36 @@
   </button>
 
   <script>
+    // ── Dupla camada — fundo desfocado ──
+    (function () {
+      const SELECTORS = [
+        '.img-featured',
+        '.carousel-slide',
+        '.img-duo-item',
+        '.family-gallery-item',
+      ];
+
+      function injectBg(container) {
+        if (container.querySelector('.img-bg')) return;
+        const main = container.querySelector('img');
+        if (!main) return;
+
+        const bg = document.createElement('img');
+        bg.src = main.getAttribute('src') || '';
+        bg.className = 'img-bg';
+        bg.alt = '';
+        bg.setAttribute('aria-hidden', 'true');
+        bg.setAttribute('decoding', 'async');
+        if (main.getAttribute('loading')) bg.setAttribute('loading', main.getAttribute('loading'));
+
+        container.insertBefore(bg, main);
+      }
+
+      SELECTORS.forEach(sel => {
+        document.querySelectorAll(sel).forEach(injectBg);
+      });
+    })();
+
     // ── Navbar scroll ──
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {

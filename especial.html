@@ -49,5 +49,26 @@
       </article>
     </section>
   </main>
+
+  <script>
+    document.querySelectorAll('.icon-card').forEach(card => {
+      const img = card.querySelector('.icon-img');
+      if (!img) return;
+
+      const wrap = document.createElement('div');
+      wrap.className = 'icon-img-wrap';
+      img.parentNode.insertBefore(wrap, img);
+      wrap.appendChild(img);
+
+      const bg = document.createElement('img');
+      bg.src = img.getAttribute('src') || '';
+      bg.className = 'img-bg';
+      bg.alt = '';
+      bg.setAttribute('aria-hidden', 'true');
+      bg.setAttribute('decoding', 'async');
+      if (img.getAttribute('loading')) bg.setAttribute('loading', img.getAttribute('loading'));
+      wrap.insertBefore(bg, img);
+    });
+  </script>
 </body>
 </html>

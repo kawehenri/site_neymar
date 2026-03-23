@@ -279,7 +279,9 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     const media = modal.querySelector('#mModalMedia');
     if (media) {
       if (d.image) {
-        media.innerHTML = `<img src="${d.image}" alt="${d.title}" decoding="async" loading="lazy">`;
+        media.innerHTML =
+          `<img src="${d.image}" alt="" class="img-bg" aria-hidden="true" decoding="async" loading="lazy">` +
+          `<img src="${d.image}" alt="${d.title}" decoding="async" loading="lazy">`;
       } else {
         media.innerHTML = '';
       }
@@ -335,6 +337,35 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
       obs.observe(network);
     }
   }
+})();
+
+/* ---------- DUPLA CAMADA — injeção automática do fundo desfocado ---------- */
+(function () {
+  const SELECTORS = [
+    '.career-card-inner',
+    '.tl-img-wrap',
+    '.curio-thumb-wrap',
+  ];
+
+  function injectBg(container) {
+    if (container.querySelector('.img-bg')) return;
+    const main = container.querySelector('img');
+    if (!main) return;
+
+    const bg = document.createElement('img');
+    bg.src = main.getAttribute('src') || '';
+    bg.className = 'img-bg';
+    bg.alt = '';
+    bg.setAttribute('aria-hidden', 'true');
+    bg.setAttribute('decoding', 'async');
+    if (main.getAttribute('loading')) bg.setAttribute('loading', main.getAttribute('loading'));
+
+    container.insertBefore(bg, main);
+  }
+
+  SELECTORS.forEach(sel => {
+    document.querySelectorAll(sel).forEach(injectBg);
+  });
 })();
 
 /* ---------- Analytics events (no-op se não houver Plausible) ---------- */

@@ -180,12 +180,12 @@ button:focus-visible {
   position: absolute;
   inset: 0;
   z-index: 0;
+  background-color: var(--dark);
 }
 .hero-img {
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
-  transform: scale(1.0);
   transition: opacity 1.2s ease;
 }
 .hero-overlay {
@@ -356,14 +356,17 @@ button:focus-visible {
   position: relative;
   aspect-ratio: 3/4;
   overflow: hidden;
+  background-color: #000;
 }
 .career-card-inner img {
+  position: absolute;
+  inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center center;
+  object-fit: contain;
+  z-index: 1;
   transition: transform .7s cubic-bezier(.4,0,.2,1);
 }
-.career-card:hover .career-card-inner img { transform: scale(1.07); }
+.career-card:hover .career-card-inner img:not(.img-bg) { transform: scale(1.05); }
 
 .career-overlay {
   position: absolute;
@@ -373,6 +376,7 @@ button:focus-visible {
   align-items: flex-end;
   padding: 24px;
   opacity: 0;
+  z-index: 2;
   transition: opacity var(--trans);
 }
 .career-card:hover .career-overlay { opacity: 1; }
@@ -489,14 +493,17 @@ button:focus-visible {
   position: relative;
   aspect-ratio: 4/3;
   overflow: hidden;
+  background-color: #000;
 }
 .tl-img-wrap img {
+  position: absolute;
+  inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center center;
+  object-fit: contain;
+  z-index: 1;
   transition: transform .6s ease;
 }
-.tl-card:hover .tl-img-wrap img { transform: scale(1.04); }
+.tl-card:hover .tl-img-wrap img:not(.img-bg) { transform: scale(1.05); }
 .tl-year {
   position: absolute;
   top: 10px; right: 12px;
@@ -507,6 +514,7 @@ button:focus-visible {
   font-weight: 700;
   padding: 3px 10px;
   border-radius: 20px;
+  z-index: 2;
 }
 .tl-body { padding: 20px 22px 24px; }
 .tl-body h3 {
@@ -594,15 +602,23 @@ button:focus-visible {
 }
 .curio-watch-btn:hover { background: #d4a800; transform: translateY(-1px); }
 .curio-thumb-wrap {
+  position: relative;
   margin-top: 14px;
   border-radius: 10px;
   overflow: hidden;
   aspect-ratio: 16/9;
+  background-color: #000;
 }
 .curio-thumb {
+  position: absolute;
+  inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
+  z-index: 1;
+  transition: transform .5s ease;
+}
+.curio-thumb:hover {
+  transform: scale(1.05);
 }
 
 /* ===================================================
@@ -1142,17 +1158,20 @@ button:focus-visible {
   margin-bottom: 22px;
 }
 .marcas-modal-media {
+  position: relative;
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.08);
-  background: #0f0f0f;
+  background: #000;
   aspect-ratio: 16/9;
   margin-bottom: 18px;
 }
 .marcas-modal-media img {
+  position: absolute;
+  inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
+  z-index: 1;
   display: block;
 }
 .marcas-modal-list {
@@ -1190,6 +1209,19 @@ button:focus-visible {
   letter-spacing: .06em;
   border-radius: 20px;
   text-transform: uppercase;
+}
+
+/* ===================================================
+   DUPLA CAMADA — fundo desfocado (img.img-bg)
+   =================================================== */
+img.img-bg {
+  object-fit: cover !important;
+  filter: blur(22px) brightness(0.4) !important;
+  transform: scale(1.15) !important;
+  z-index: 0 !important;
+  pointer-events: none;
+  user-select: none;
+  transition: none !important;
 }
 
 /* ===================================================
