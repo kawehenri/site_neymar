@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #0b0b0b;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+  }
+
+  img { display: block; max-width: 100%; }
+  a   { text-decoration: none; color: inherit; }
+
+  ::-webkit-scrollbar       { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0b0b0b; }
+  ::-webkit-scrollbar-thumb { background: #f0c040; border-radius: 2px; }
+}
+
+/* ── Dual-layer image technique ── */
+@layer components {
+  .dual-img-wrap {
+    @apply relative overflow-hidden;
+  }
+  .dual-img-wrap .img-bg {
+    @apply absolute inset-0 w-full h-full object-cover;
+    filter: blur(10px);
+    transform: scale(1.12);
+    opacity: 0.55;
+    z-index: 0;
+  }
+  .dual-img-wrap .img-main {
+    @apply relative w-full h-full object-contain;
+    z-index: 1;
+  }
+
+  /* ── Section header utility ── */
+  .section-eyebrow {
+    @apply font-inter text-xs tracking-[0.35em] uppercase text-gold;
+  }
+  .section-title-lg {
+    @apply font-oswald text-3xl md:text-5xl font-semibold text-white tracking-wide;
+  }
+
+  /* ── Career card ── */
+  .career-card {
+    @apply relative overflow-hidden rounded-lg cursor-pointer;
+    aspect-ratio: 3/4;
+  }
+  .career-card .img-bg {
+    @apply absolute inset-0 w-full h-full object-cover;
+    filter: blur(6px);
+    transform: scale(1.08);
+    opacity: 0.5;
+    z-index: 0;
+  }
+  .career-card .img-main {
+    @apply absolute inset-0 w-full h-full object-contain;
+    z-index: 1;
+    transition: transform 0.6s ease;
+  }
+  .career-card:hover .img-main { transform: scale(1.04); }
+
+  .career-overlay {
+    @apply absolute inset-0 flex items-end;
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .career-card:hover .career-overlay { opacity: 1; }
+
+  /* ── Timeline ── */
+  .tl-entry { @apply grid gap-0; }
+
+  /* ── Scroll reveal ── */
+  .reveal, .will-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible, .will-reveal.revealed {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── Carousel ── */
+  .carousel-track { @apply flex transition-transform duration-500 ease-in-out; }
+  .carousel-slide { @apply flex-shrink-0 w-full; }
+
+  /* ── Back to top ── */
+  #back-to-top {
+    @apply fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-gold text-dark flex items-center justify-center shadow-lg;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(8px);
+  }
+  #back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+  #back-to-top:hover { @apply bg-gold-light; }
+
+  /* ── Article specific ── */
+  .article-lead {
+    @apply text-lg md:text-xl leading-relaxed text-gray-200;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+  }
+  .article-quote {
+    @apply my-8 pl-5 border-l-2 border-gold italic;
+  }
+  .article-quote p {
+    @apply font-playfair text-lg md:text-xl text-gray-200 leading-relaxed;
+  }
+  .article-quote footer {
+    @apply font-inter text-sm text-gray-500 mt-2 not-italic;
+  }
+
+  /* ── Marcas network ── */
+  .net-line   { stroke-dasharray: 200; stroke-dashoffset: 200; transition: stroke-dashoffset 1s ease; }
+  .net-dot    { opacity: 0; transform: scale(0); transition: opacity 0.4s ease, transform 0.4s ease; }
+  .net-center { @apply absolute inset-0 flex flex-col items-center justify-center; }
+  .net-ring   {
+    @apply absolute rounded-full border border-gold/20;
+    animation: pulse-ring 2.5s ease-out infinite;
+  }
+  .net-ring.r1 { width: 72px; height: 72px; }
+  .net-ring.r2 { width: 100px; height: 100px; animation-delay: 0.8s; }
+
+  @keyframes pulse-ring {
+    0%   { opacity: 0.6; transform: scale(0.95); }
+    100% { opacity: 0;   transform: scale(1.4); }
+  }
+
+  .net-visible .net-line { stroke-dashoffset: 0; }
+  .net-visible .net-dot  { opacity: 1; transform: scale(1); }
+}

@@ -13,7 +13,9 @@ const rateLimit = require("express-rate-limit");
 const nodemailer = require("nodemailer");
 
 const PORT = Number(process.env.PORT) || 3000;
-const ROOT = path.join(__dirname, "..");
+const fs = require("fs");
+const distPath = path.join(__dirname, "..", "client", "dist");
+const ROOT = fs.existsSync(distPath) ? distPath : path.join(__dirname, "..");
 
 const app = express();
 
@@ -125,7 +127,21 @@ function escapeHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
+// Always serve videos from project root regardless of main static dir
+app.use('/video', express.static(path.join(__dirname, '..', 'video')));
+
 app.use(express.static(ROOT, { index: ["index.html"], extensions: ["html"] }));
+
+// SPA fallback for React Router
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api/') || req.path.startsWith('/video/')) return next();
+  const indexFile = path.join(ROOT, 'index.html');
+  if (require('fs').existsSync(indexFile)) {
+    res.sendFile(indexFile);
+  } else {
+    next();
+  }
+});
 
 app.use((req, res, next) => {
   if (req.path.startsWith("/api/")) {
