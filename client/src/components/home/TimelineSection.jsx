@@ -57,9 +57,9 @@ function TimelineEntry({ entry, index }) {
       <div className={`w-[calc(50%-2rem)] bg-dark-200 border border-white/8 overflow-hidden hover:border-gold/30 transition-colors duration-500 ${
         isLeft ? 'mr-8' : 'ml-8'
       }`}>
-        <div className="h-44 md:h-52">
+        <div className="h-44 md:h-52 relative">
           <DualLayerImg src={entry.image} alt={entry.title} className="w-full h-full" />
-          <div className={`absolute top-3 ${isLeft ? 'right-3' : 'left-3'}`}>
+          <div className={`absolute top-3 z-10 ${isLeft ? 'right-3' : 'left-3'}`}>
             <span className="font-oswald text-base font-bold px-3 py-1 bg-gold text-dark">
               {entry.year}
             </span>

@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import DualLayerImg from '../shared/DualLayerImg'
 import { curiosidadesData } from '../../data/homeData'
 
 const PlayIcon = () => (
@@ -22,7 +23,7 @@ function CurioCard({ item, index }) {
         item.video ? 'flex flex-col' : ''
       }`}
     >
-      <div className="text-3xl mb-4 leading-none">{item.icon}</div>
+      <div className="font-oswald text-3xl font-bold text-gold/20 mb-4 leading-none">{String(index + 1).padStart(2, '0')}</div>
       <h4 className="font-oswald text-lg font-semibold text-white mb-2">{item.title}</h4>
       <p className="font-inter text-sm text-gray-400 leading-relaxed flex-1">{item.desc}</p>
 
@@ -37,9 +38,8 @@ function CurioCard({ item, index }) {
             <PlayIcon />
             Assistir no YouTube
           </a>
-          <div className="mt-3 rounded overflow-hidden h-32 relative">
-            <img src={item.video.thumb} alt="" className="img-bg absolute inset-0 w-full h-full object-cover opacity-50" aria-hidden />
-            <img src={item.video.thumb} alt="Neymar pela Seleção" className="relative z-10 w-full h-full object-contain" loading="lazy" />
+          <div className="mt-3 rounded overflow-hidden h-32">
+            <DualLayerImg src={item.video.thumb} alt="Neymar pela Seleção" className="w-full h-full" />
           </div>
         </>
       )}

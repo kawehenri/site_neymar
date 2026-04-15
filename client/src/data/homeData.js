@@ -107,37 +107,31 @@ export const timelineData = [
 
 export const curiosidadesData = [
   {
-    icon: '⚽',
     title: 'Artilheiro Histórico',
     desc: 'Neymar é o maior artilheiro da história da Seleção Brasileira, com mais de 79 gols, superando Pelé em 2023.',
     video: null,
   },
   {
-    icon: '🏆',
     title: 'Primeiro Gol Profissional',
     desc: 'Marcou seu primeiro gol como profissional com apenas 17 anos, em 2009, defendendo o Santos Futebol Clube.',
     video: null,
   },
   {
-    icon: '💰',
     title: 'Transferência Recorde',
     desc: 'A transferência para o PSG em 2017 por €222 milhões ainda é o maior valor pago por um jogador na história do futebol.',
     video: null,
   },
   {
-    icon: '🥇',
     title: 'Herói Olímpico',
     desc: 'Decidiu o ouro olímpico de 2016 com o pênalti decisivo no Maracanã, encerrando um jejum histórico do Brasil.',
     video: null,
   },
   {
-    icon: '🎨',
     title: 'O Jogo Bonito',
     desc: 'Reconhecido mundialmente por combinar dribles desconcertantes, visão de jogo excepcional e uma alegria inconfundível dentro de campo.',
     video: null,
   },
   {
-    icon: '🎬',
     title: 'Todos os Gols pela Seleção',
     desc: 'Assista ao compilado de todos os gols históricos de Neymar defendendo o Brasil.',
     video: { url: 'https://youtu.be/uxwhdEsambY?feature=shared', thumb: '/brasil1.jpeg' },
@@ -146,7 +140,6 @@ export const curiosidadesData = [
 
 export const marcasData = {
   'nr-sports': {
-    icon: '🏢',
     badge: 'Gestão & Negócios',
     color: '#60a5fa',
     image: '/nr.jpeg',
@@ -161,7 +154,6 @@ export const marcasData = {
     tags: ['Contratos', 'Imagem', 'Negócios', 'Parcerias'],
   },
   'puma': {
-    icon: '🐆',
     badge: 'Marca Global',
     color: '#00e676',
     image: '/puma.jpeg',
@@ -176,7 +168,6 @@ export const marcasData = {
     tags: ['NJR Creativity', 'NJR Copa', 'Lifestyle', 'Moda Esportiva'],
   },
   'njr-brand': {
-    icon: '👑',
     badge: 'Identidade Pessoal',
     color: '#f0c040',
     image: '/njr.jpeg',
@@ -191,7 +182,6 @@ export const marcasData = {
     tags: ['Roupas', 'Chuteiras', 'Futebol de Rua', 'Cultura Brasileira'],
   },
   'njr-eyewear': {
-    icon: '🕶️',
     badge: 'Lifestyle & Moda',
     color: '#c084fc',
     image: '/oculos.jpeg',

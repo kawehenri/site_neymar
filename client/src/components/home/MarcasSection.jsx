@@ -50,7 +50,7 @@ function MarcaModal({ modalId, onClose }) {
         <div className="p-7">
           <div className="flex items-start justify-between mb-4">
             <div>
-              <span className="text-3xl block mb-2">{d.icon}</span>
+              <div className="w-3 h-3 rounded-full mb-3" style={{ background: d.color }} />
               <span className="font-inter text-xs px-2.5 py-1 border rounded-full" style={{ borderColor: d.color, color: d.color }}>
                 {d.badge}
               </span>

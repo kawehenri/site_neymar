@@ -96,7 +96,7 @@ export default function Carousel({ slides, autoPlay = true, interval = 4800 }) {
           </button>
 
           {/* Dots */}
-          <div className="absolute bottom-[2.8rem] left-0 right-0 flex justify-center gap-2">
+          <div className="absolute bottom-16 left-0 right-0 flex justify-center gap-2">
             {slides.map((_, i) => (
               <button
                 key={i}

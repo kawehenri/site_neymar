@@ -45,22 +45,18 @@ function EspHero() {
 /* ── Pillars ── */
 const PILLARS = [
   {
-    icon: '😄',
     title: 'Brincalhão de verdade',
     desc: 'Não é pose. Em treinos, câmeras escondidas, vestiários — Neymar é o primeiro a fazer graça e o último a parar de rir.',
   },
   {
-    icon: '👨‍👩‍👧‍👦',
     title: 'Família em primeiro lugar',
     desc: 'O Pai Neymar, a Rafaella, o Davi Lucca, a Mavie — ele nunca escondeu o quanto os seus são sua base e sua motivação.',
   },
   {
-    icon: '🎭',
     title: 'Espontâneo e autêntico',
     desc: 'Dança depois do gol, manda áudio de WhatsApp, faz live no meio da madrugada. Sem filtro, sem roteiro — só ele mesmo.',
   },
   {
-    icon: '🔥',
     title: 'Intenso em tudo',
     desc: 'O mesmo cara que dribla três zagueiros também sente cada falta no corpo, torce pelo amigo e celebra como se fosse a última vez.',
   },
@@ -98,7 +94,7 @@ function CarismaSection() {
               transition={{ duration: 0.55, delay: i * 0.09 }}
               className="bg-dark-200 border border-white/8 p-6 hover:border-gold/30 transition-colors duration-400"
             >
-              <div className="text-3xl mb-3">{p.icon}</div>
+              <div className="font-oswald text-3xl font-bold text-gold/20 mb-3 leading-none">{String(i + 1).padStart(2, '0')}</div>
               <h4 className="font-oswald text-lg font-semibold text-white mb-2">{p.title}</h4>
               <p className="font-inter text-sm text-gray-400 leading-relaxed">{p.desc}</p>
             </motion.div>
@@ -183,10 +179,10 @@ function GaleriaSection() {
 
 /* ── Inspiração ── */
 const INSP_LIST = [
-  { icon: '⚡', text: 'Acreditar no próprio estilo quando todos pedem mudança' },
-  { icon: '🛡️', text: 'Aguentar pressão, críticas e lesões sem perder a essência' },
-  { icon: '💛', text: 'Continuar sendo você mesmo no topo do mundo' },
-  { icon: '🌟', text: 'Transformar dificuldade em combustível' },
+  { text: 'Acreditar no próprio estilo quando todos pedem mudança' },
+  { text: 'Aguentar pressão, críticas e lesões sem perder a essência' },
+  { text: 'Continuar sendo você mesmo no topo do mundo' },
+  { text: 'Transformar dificuldade em combustível' },
 ]
 
 function InspiracaoSection() {
@@ -216,7 +212,7 @@ function InspiracaoSection() {
             <ul className="space-y-3">
               {INSP_LIST.map(item => (
                 <li key={item.text} className="flex items-start gap-3 font-inter text-sm text-gray-400">
-                  <span className="flex-shrink-0 mt-0.5">{item.icon}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-1.5" />
                   {item.text}
                 </li>
               ))}
@@ -298,7 +294,7 @@ function VideosSection() {
                 Foi ali que o país percebeu: Neymar não era só mais uma promessa. Era algo <strong className="text-gray-200">fora do comum</strong>.
               </p>
               <div className="flex items-start gap-3 p-3 bg-dark-300 border border-white/5">
-                <span className="text-gold flex-shrink-0">🔑</span>
+                <span className="w-0.5 h-full min-h-[1rem] bg-gold flex-shrink-0 rounded-full" />
                 <p className="font-inter text-xs text-gray-500">
                   Quando até o narrador do adversário não consegue esconder a admiração, você sabe que está diante de algo especial.
                 </p>
@@ -334,7 +330,7 @@ function VideosSection() {
                 É o lado humano de quem está dentro de campo, sentindo cada dividida no corpo, mas <strong className="text-gray-200">continuando mesmo assim</strong>.
               </p>
               <div className="flex items-start gap-3 p-3 bg-dark-300 border border-white/5">
-                <span className="text-gold flex-shrink-0">💡</span>
+                <span className="w-0.5 h-full min-h-[1rem] bg-gold flex-shrink-0 rounded-full" />
                 <p className="font-inter text-xs text-gray-500">
                   Esse áudio mostra o quanto ele vive o jogo com intensidade. Cada entrada é sentida. Cada falta é real.
                 </p>
