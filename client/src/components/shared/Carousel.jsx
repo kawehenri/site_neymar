@@ -40,7 +40,6 @@ export default function Carousel({ slides, autoPlay = true, interval = 4800 }) {
     return stopAuto
   }, [startAuto, stopAuto])
 
-  // Touch swipe
   const touchStart = useRef(0)
   const handleTouchStart = (e) => { touchStart.current = e.touches[0].clientX }
   const handleTouchEnd = (e) => {
@@ -50,7 +49,7 @@ export default function Carousel({ slides, autoPlay = true, interval = 4800 }) {
 
   return (
     <div
-      className="relative overflow-hidden rounded-lg bg-dark-200"
+      className="relative overflow-hidden rounded-editorial border border-white/10 bg-[#090909]"
       onMouseEnter={stopAuto}
       onMouseLeave={startAuto}
       onTouchStart={handleTouchStart}
@@ -59,7 +58,6 @@ export default function Carousel({ slides, autoPlay = true, interval = 4800 }) {
       aria-roledescription="carousel"
       aria-label="Galeria de imagens"
     >
-      {/* Track */}
       <div
         className="flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${current * 100}%)` }}
@@ -67,22 +65,25 @@ export default function Carousel({ slides, autoPlay = true, interval = 4800 }) {
         {slides.map((slide, i) => (
           <div
             key={i}
-            className="flex-shrink-0 w-full"
+            className="w-full flex-shrink-0"
             role="group"
             aria-roledescription="slide"
             aria-label={`${i + 1} de ${total}`}
             aria-hidden={i !== current}
           >
-            <ResponsiveImage
-              src={slide.src}
-              alt={slide.caption || ''}
-              className="w-full aspect-[16/10] bg-black"
-              imgClassName="object-contain"
-              width="1200"
-              height="750"
-            />
+            <div className="relative mx-auto flex min-h-[280px] w-full items-center justify-center bg-[#090909] md:min-h-[420px] lg:min-h-[520px]">
+              <ResponsiveImage
+                src={slide.src}
+                alt={slide.caption || ''}
+                className="h-full max-h-[70vh] w-full"
+                fit="contain"
+                position={slide.position || 'center top'}
+                width="1400"
+                height="900"
+              />
+            </div>
             {slide.caption && (
-              <p className="text-center text-xs text-gray-400 font-inter py-3 px-4 italic bg-dark-200">
+              <p className="border-t border-white/5 bg-dark-200 px-4 py-3 text-center font-inter text-xs italic leading-relaxed text-gray-400">
                 {slide.caption}
               </p>
             )}
@@ -90,32 +91,30 @@ export default function Carousel({ slides, autoPlay = true, interval = 4800 }) {
         ))}
       </div>
 
-      {/* Prev / Next */}
       {total > 1 && (
         <>
           <button
             onClick={prev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center bg-black/60 hover:bg-gold hover:text-dark text-white rounded-full transition-all duration-300"
+            className="absolute left-3 top-[42%] z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/65 text-white transition-all duration-300 hover:bg-gold hover:text-dark"
             aria-label="Anterior"
           >
             <ChevronLeft />
           </button>
           <button
             onClick={next}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center bg-black/60 hover:bg-gold hover:text-dark text-white rounded-full transition-all duration-300"
+            className="absolute right-3 top-[42%] z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/65 text-white transition-all duration-300 hover:bg-gold hover:text-dark"
             aria-label="Próxima"
           >
             <ChevronRight />
           </button>
 
-          {/* Dots */}
-          <div className="absolute bottom-16 left-0 right-0 flex justify-center gap-2">
+          <div className="pointer-events-none absolute bottom-14 left-0 right-0 flex justify-center gap-2">
             {slides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === current ? 'bg-gold scale-125' : 'bg-white/40 hover:bg-white/70'
+                className={`pointer-events-auto h-2 w-2 rounded-full transition-all duration-300 ${
+                  i === current ? 'scale-125 bg-gold' : 'bg-white/40 hover:bg-white/70'
                 }`}
                 aria-label={`Slide ${i + 1}`}
                 aria-current={i === current ? 'true' : undefined}

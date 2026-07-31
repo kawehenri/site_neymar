@@ -81,18 +81,18 @@
   }
 
   .dual-img-wrap {
-    @apply relative overflow-hidden;
+    @apply relative overflow-hidden bg-black;
   }
   .dual-img-wrap .img-bg {
     @apply absolute inset-0 w-full h-full object-cover;
-    filter: blur(20px);
-    transform: scale(1.18);
-    opacity: 0.38;
+    filter: blur(22px);
+    transform: scale(1.2);
+    opacity: 0.35;
     z-index: 0;
   }
   .dual-img-wrap .img-main {
-    @apply relative w-full h-full object-contain;
-    z-index: 1;
+    @apply relative z-[1] h-full w-full object-contain;
+    object-position: center top;
   }
 
   /* ── Section header utility ── */

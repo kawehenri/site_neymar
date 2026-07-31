@@ -11,7 +11,10 @@ export default function ResponsiveImage({
   loading = 'lazy',
   fetchPriority,
   position = 'center',
+  fit = 'cover',
 }) {
+  const fitClass = fit === 'contain' ? 'object-contain' : 'object-cover'
+
   return (
     <picture className={`block overflow-hidden ${className}`}>
       {mobileSrc && (
@@ -35,7 +38,7 @@ export default function ResponsiveImage({
         loading={loading}
         fetchPriority={fetchPriority}
         decoding="async"
-        className={`h-full w-full object-cover ${imgClassName}`}
+        className={`h-full w-full ${fitClass} ${imgClassName}`}
         style={{ objectPosition: position }}
       />
     </picture>

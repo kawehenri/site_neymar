@@ -312,7 +312,7 @@ export default function Artigo() {
             <SectionLabel number="01" tag="Origem" />
             <h2 className="font-oswald text-3xl md:text-4xl font-semibold text-white mb-6">A Criança de Mogi das Cruzes que Sonhava Grande</h2>
             <div className="mb-5">
-              <DualLayerImg src="/infancia.jpeg" alt="Neymar Jr na infância" className="w-full h-64 md:h-80 rounded" />
+              <DualLayerImg src="/editorial/artigo-infancia.png" alt="Neymar Jr na infância" className="w-full aspect-[4/3] rounded-editorial" />
               <p className="font-inter text-xs text-gray-500 text-center mt-2 italic">O jovem Neymar nas categorias de base do Santos — desde cedo, a bola era uma extensão do seu corpo</p>
             </div>
             <p className={p}>
@@ -332,9 +332,9 @@ export default function Artigo() {
             <SectionLabel number="02" tag="2009 – 2013" />
             <h2 className="font-oswald text-3xl md:text-4xl font-semibold text-white mb-6">Santos FC: Onde Nasceu uma Lenda</h2>
             <Carousel slides={[
-              { src: '/santos3.jpeg',  caption: 'Neymar com a camisa do Santos — o clube que revelou o maior talento do futebol brasileiro da sua geração' },
-              { src: '/santos2.jpeg',  caption: 'Os dribles impossíveis que deixavam a Vila Belmiro em delírio absoluto a cada partida' },
-              { src: '/santos4.jpeg',  caption: 'Copa Libertadores 2011 — o maior título do futebol sul-americano conquistado aos 19 anos' },
+              { src: '/editorial/artigo-santos-01.png', caption: 'Neymar com a camisa do Santos — o clube que revelou o maior talento do futebol brasileiro da sua geração' },
+              { src: '/santos2.jpeg', caption: 'Os dribles impossíveis que deixavam a Vila Belmiro em delírio absoluto a cada partida', position: 'center top' },
+              { src: '/editorial/artigo-santos-02.png', caption: 'Copa Libertadores 2011 — o maior título do futebol sul-americano conquistado aos 19 anos' },
             ]} />
             <p className={`${p} mt-5`}>
               No dia <strong>7 de março de 2009</strong>, um garoto de 17 anos entrou em campo pela primeira vez como profissional. O Santos jogava contra o Oeste pelo Campeonato Paulista. Em questões de minutos ficou claro que aquilo não era uma estreia normal. Era uma <em>apresentação</em>.
@@ -357,10 +357,10 @@ export default function Artigo() {
             <SectionLabel number="03" tag="2013 – 2017" />
             <h2 className="font-oswald text-3xl md:text-4xl font-semibold text-white mb-6">Barcelona: O Trio que Parou o Mundo</h2>
             <Carousel slides={[
-              { src: '/barca1.jpeg', caption: 'Neymar Jr. com a camisa blaugrana — o início de uma era dourada no coração do Camp Nou' },
-              { src: '/barca2.jpeg', caption: 'O lendário trio MSN — Messi, Suárez e Neymar marcaram 122 gols juntos na temporada 2014/15' },
-              { src: '/barca3.jpeg', caption: 'UEFA Champions League 2015 — Neymar levanta o troféu mais cobiçado do futebol europeu em Berlim' },
-              { src: '/barca4.jpeg', caption: '105 gols e 76 assistências em 186 jogos — um legado eterno escrito em azul e grená' },
+              { src: '/editorial/artigo-barca-01.png', caption: 'Neymar Jr. com a camisa blaugrana — o início de uma era dourada no coração do Camp Nou' },
+              { src: '/editorial/artigo-barca-02.png', caption: 'O lendário trio MSN — Messi, Suárez e Neymar marcaram 122 gols juntos na temporada 2014/15' },
+              { src: '/editorial/artigo-barca-03.png', caption: 'UEFA Champions League 2015 — Neymar levanta o troféu mais cobiçado do futebol europeu em Berlim' },
+              { src: '/barca4.jpeg', caption: '105 gols e 76 assistências em 186 jogos — um legado eterno escrito em azul e grená', position: 'center top' },
             ]} />
             <p className={`${p} mt-5`}>
               Em junho de 2013, Neymar assinou com o <strong>FC Barcelona</strong>. O Camp Nou recebeu seu novo rei com os braços abertos. Mas o maior presente seria o que aconteceria quando ele encontrasse <strong>Lionel Messi e Luis Suárez</strong>. O famoso trio <strong>MSN</strong> não foi apenas um time de futebol — foi um fenômeno cultural.
@@ -381,16 +381,16 @@ export default function Artigo() {
             <SectionLabel number="04" tag="2017 – 2023" />
             <h2 className="font-oswald text-3xl md:text-4xl font-semibold text-white mb-6">PSG: O Recorde de €222 Milhões e a Era Paris</h2>
             <div className="mb-5">
-              <DualLayerImg src="/a_chegada.jpeg" alt="Chegada de Neymar ao PSG" className="w-full h-64 md:h-80 rounded" />
+              <DualLayerImg src="/a_chegada.jpeg" alt="Chegada de Neymar ao PSG" className="w-full aspect-[4/3] rounded-editorial" />
               <p className="font-inter text-xs text-gray-500 text-center mt-2 italic">A chegada histórica ao Paris Saint-Germain em agosto de 2017 — o dia em que o futebol mudou para sempre</p>
             </div>
             <p className={p}>
               <strong>3 de agosto de 2017.</strong> O Paris Saint-Germain anunciou oficialmente a contratação de Neymar Jr. por <strong>222 milhões de euros</strong> — ativando a cláusula de rescisão do Barcelona e reescrevendo para sempre o mercado de transferências. Um número tão absurdo que muita gente achou que era fake news.
             </p>
             <Carousel slides={[
-              { src: '/psg1.jpeg', caption: 'Neymar dominando Paris — o número 10 que transformou o PSG em referência global do futebol' },
-              { src: '/psg2.jpeg', caption: '118+ gols e 77+ assistências — números extraordinários apesar das batalhas constantes contra lesões' },
-              { src: '/psg3.jpeg', caption: 'Final da Champions League 2020 em Lisboa — Neymar levou o PSG à maior final da história do clube' },
+              { src: '/editorial/artigo-psg-02.png', caption: 'Neymar dominando Paris — o número 10 que transformou o PSG em referência global do futebol' },
+              { src: '/editorial/artigo-psg-01.png', caption: '118+ gols e 77+ assistências — números extraordinários apesar das batalhas constantes contra lesões' },
+              { src: '/psg3.jpeg', caption: 'Final da Champions League 2020 em Lisboa — Neymar levou o PSG à maior final da história do clube', position: 'center top' },
             ]} />
             <p className={`${p} mt-5`}>
               Nos seis anos no PSG, Neymar marcou mais de <strong>118 gols</strong> e distribuiu mais de <strong>77 assistências</strong>. Mesmo com lesões severas, levou o PSG à <strong>final da Champions League de 2020</strong> — a primeira final do clube na história.
@@ -408,17 +408,17 @@ export default function Artigo() {
             <h2 className="font-oswald text-3xl md:text-4xl font-semibold text-white mb-6">Al-Hilal, Lesões e o Retorno ao Lar</h2>
             <p className="font-inter text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">Capítulo Árabe</p>
             <div className="grid grid-cols-2 gap-3 mb-5">
-              <DualLayerImg src="/arabia1.jpeg" alt="Neymar Al-Hilal" className="w-full h-44 rounded" />
-              <DualLayerImg src="/arabia2.jpeg" alt="Neymar Al-Hilal treino" className="w-full h-44 rounded" />
+              <DualLayerImg src="/arabia1.jpeg" alt="Neymar Al-Hilal" className="w-full aspect-[4/3] rounded-editorial" />
+              <DualLayerImg src="/arabia2.jpeg" alt="Neymar Al-Hilal treino" className="w-full aspect-[4/3] rounded-editorial" />
             </div>
             <p className={p}>
               Em agosto de 2023, Neymar assinou com o <strong>Al-Hilal</strong>. O início foi promissor, mas o destino conspirou: ruptura do ligamento cruzado anterior do joelho esquerdo em outubro de 2023, durante jogo pela Seleção contra o Uruguai. Mais de um ano de recuperação e espera.
             </p>
             <p className="font-inter text-sm font-semibold text-gray-400 uppercase tracking-widest my-4">O Filho Pródigo Volta para Casa</p>
             <Carousel slides={[
-              { src: '/a_volta.jpeg',      caption: 'A volta — o momento em que Neymar cruzou a fronteira de volta para o futebol brasileiro' },
-              { src: '/santos_volta1.jpeg',caption: 'Santos 2025 — o filho pródigo de volta à Vila Belmiro, onde tudo começou' },
-              { src: '/santos_volta2.jpeg',caption: 'A recepção da torcida santista foi um dos momentos mais emocionantes do futebol brasileiro recente' },
+              { src: '/a_volta.jpeg', caption: 'A volta — o momento em que Neymar cruzou a fronteira de volta para o futebol brasileiro', position: 'center top' },
+              { src: '/santos_volta1.jpeg', caption: 'Santos 2025 — o filho pródigo de volta à Vila Belmiro, onde tudo começou', position: 'center top' },
+              { src: '/santos_volta2.jpeg', caption: 'A recepção da torcida santista foi um dos momentos mais emocionantes do futebol brasileiro recente', position: 'center top' },
             ]} />
             <p className={`${p} mt-5`}>
               Em 2025, Neymar voltou para casa — para o clube que o viu nascer, para a torcida que sempre o amou. Não era mais o menino de 17 anos cheio de futuro. Era um homem de 33 anos, carregado de história. Mas com a mesma chama viva no olhar.
@@ -430,28 +430,28 @@ export default function Artigo() {
           <section className="mb-16 will-reveal" id="selecao">
             <SectionLabel number="06" tag="Seleção" />
             <h2 className="font-oswald text-3xl md:text-4xl font-semibold text-white mb-6">A Camisa Amarela: O Maior Artilheiro da História do Brasil</h2>
-            <DualLayerImg src="/brasil1.jpeg" alt="Neymar Seleção Brasileira" className="w-full h-64 md:h-80 rounded mb-5" />
+            <DualLayerImg src="/brasil1.jpeg" alt="Neymar Seleção Brasileira" className="mb-5 w-full aspect-[4/3] rounded-editorial" />
             <p className={p}>
               É com a camisa da <strong>Seleção Brasileira</strong> que sua história ganha uma dimensão ainda maior. Ele estreou em 2010, aos 18 anos, e desde então tornou-se o rosto mais reconhecível do futebol brasileiro no mundo.
             </p>
             <p className="font-inter text-sm font-semibold text-gray-400 uppercase tracking-widest my-4">Copa das Confederações 2013</p>
-            <DualLayerImg src="/copa_das_confederacoes.jpeg" alt="Copa das Confederações 2013" className="w-full h-56 rounded mb-4" />
+            <DualLayerImg src="/copa_das_confederacoes.jpeg" alt="Copa das Confederações 2013" className="mb-4 w-full aspect-[4/3] rounded-editorial" />
             <p className={p}>
               Neymar liderou um Brasil que venceu a Espanha por <strong>3 a 0</strong> na final do Maracanã. Eleito o melhor jogador e artilheiro do torneio com 4 gols, mostrou ao mundo que estava pronto para ser o portador da bandeira amarela.
             </p>
             <p className="font-inter text-sm font-semibold text-gray-400 uppercase tracking-widest my-4">Copas do Mundo</p>
             <Carousel slides={[
-              { src: '/copa1.jpg',  caption: 'Toda a esperança de uma nação depositada sobre um único par de ombros — Neymar em cada Copa do Mundo' },
-              { src: '/copa2.jpeg', caption: '2014 — A Copa da dor: a joelhada criminosa de Zúñiga que deixou o país de coração partido nas semifinais' },
-              { src: '/copa3.jpeg', caption: 'Com a faixa de capitão e o peso de uma nação — Neymar em campo pela canarinho nunca foi meia medida' },
+              { src: '/editorial/artigo-copa-01.png', caption: 'Toda a esperança de uma nação depositada sobre um único par de ombros — Neymar em cada Copa do Mundo' },
+              { src: '/editorial/artigo-copa-02.png', caption: '2014 — A Copa da dor: a joelhada criminosa de Zúñiga que deixou o país de coração partido nas semifinais' },
+              { src: '/copa3.jpeg', caption: 'Com a faixa de capitão e o peso de uma nação — Neymar em campo pela canarinho nunca foi meia medida', position: 'center top' },
             ]} />
             <p className={`${p} mt-5`}>
               A <strong>Copa do Mundo de 2014</strong> no Brasil ficará para sempre marcada — Neymar sofreu uma fratura na vértebra após uma joelhada criminosa, contribuindo para o traumático 7 a 1 contra a Alemanha. Ver Neymar chorar de maca foi uma das cenas mais tristes que o futebol brasileiro já produziu.
             </p>
             <p className="font-inter text-sm font-semibold text-gray-400 uppercase tracking-widest my-4">Olimpíadas Rio 2016 — O Ouro que Faltava</p>
             <div className="grid grid-cols-2 gap-3 mb-4">
-              <DualLayerImg src="/olimpiadas1.jpeg" alt="Neymar Olimpíadas Rio 2016" className="w-full h-44 rounded" />
-              <DualLayerImg src="/olimpiadas2.jpeg" alt="Ouro olímpico" className="w-full h-44 rounded" />
+              <DualLayerImg src="/editorial/timeline-2016.png" alt="Neymar Olimpíadas Rio 2016" className="w-full aspect-[4/3] rounded-editorial" />
+              <DualLayerImg src="/olimpiadas2.jpeg" alt="Ouro olímpico" className="w-full aspect-[4/3] rounded-editorial" />
             </div>
             <p className={p}>
               Nas <strong>Olimpíadas de 2016</strong>, Neymar carregou o Brasil nas costas. Na final contra a Alemanha, a partida foi para os pênaltis. Com 70 mil pessoas no Maracanã, ele correu, parou, <em>esperou</em> o goleiro se jogar, e jogou a bola no canto contrário. O Brasil tinha, finalmente, o ouro olímpico no futebol masculino.
@@ -472,9 +472,9 @@ export default function Artigo() {
             <SectionLabel number="07" tag="Legado Social" />
             <h2 className="font-oswald text-3xl md:text-4xl font-semibold text-white mb-6">Instituto Projeto Neymar Jr.: Transformando Vidas em Praia Grande</h2>
             <Carousel slides={[
-              { src: '/instituto1.jpg',  caption: 'Instituto Projeto Neymar Jr. — uma das mais belas obras sociais já construídas por um atleta brasileiro' },
-              { src: '/instituto2.jpeg', caption: 'Mais de 2.700 crianças atendidas por turno — o legado que vai muito além das quatro linhas do campo' },
-              { src: '/instituto3.jpeg', caption: 'Futebol, dança, música, capoeira e reforço escolar — o Instituto forma cidadãos, não apenas atletas' },
+              { src: '/instituto1.jpg', caption: 'Instituto Projeto Neymar Jr. — uma das mais belas obras sociais já construídas por um atleta brasileiro', position: 'center' },
+              { src: '/instituto2.jpeg', caption: 'Mais de 2.700 crianças atendidas por turno — o legado que vai muito além das quatro linhas do campo', position: 'center' },
+              { src: '/instituto3.jpeg', caption: 'Futebol, dança, música, capoeira e reforço escolar — o Instituto forma cidadãos, não apenas atletas', position: 'center' },
             ]} />
             <p className={`${p} mt-5`}>
               O <strong>Instituto Projeto Neymar Jr.</strong> é simplesmente um dos maiores legados sociais deixados por um atleta brasileiro ainda em atividade. Criado em <strong>2014</strong>, em Praia Grande, atende mais de <strong>2.700 crianças e adolescentes por turno</strong> — filhos de famílias de baixa renda que encontram não apenas aulas de esportes, mas um ambiente de acolhimento e possibilidade.
@@ -494,7 +494,7 @@ export default function Artigo() {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
               {['/familia1.jpeg','/familia2.jpeg','/familia3.jpeg','/familia4.jpeg','/familia5.jpeg','/familia6.jpeg'].map((src, i) => (
-                <DualLayerImg key={i} src={src} alt="Família Neymar" className="w-full h-36 rounded" />
+                <DualLayerImg key={i} src={src} alt="Família Neymar" className="w-full aspect-[4/3] rounded-editorial" />
               ))}
             </div>
             <p className="font-inter text-xs text-gray-500 text-center mb-5 italic">
@@ -510,8 +510,8 @@ export default function Artigo() {
             <SectionLabel number="09" tag="Fora do Campo" />
             <h2 className="font-oswald text-3xl md:text-4xl font-semibold text-white mb-6">Estilo, Personalidade e a Marca Neymar</h2>
             <div className="grid grid-cols-2 gap-3 mb-5">
-              <DualLayerImg src="/lindeza_estilo.jpeg" alt="Neymar estilo" className="w-full h-52 rounded" />
-              <DualLayerImg src="/neymar1.jpg" alt="Neymar personalidade" className="w-full h-52 rounded" />
+              <DualLayerImg src="/lindeza_estilo.jpeg" alt="Neymar estilo" className="w-full aspect-[4/5] rounded-editorial" />
+              <DualLayerImg src="/neymar1.jpg" alt="Neymar personalidade" className="w-full aspect-[4/5] rounded-editorial" />
             </div>
             <p className={p}>
               Neymar não é apenas um fenômeno esportivo — é uma marca. Uma figura pública que transcende o futebol e habita os mundos da moda, da música, do entretenimento e da cultura pop. Os penteados ousados que viraram meme e tendência ao mesmo tempo, as roupas coloridas, o estilo inconfundível de celebrar os gols.
