@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import DualLayerImg from './DualLayerImg'
+import ResponsiveImage from './ResponsiveImage'
+import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion'
 
 const ChevronLeft = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -17,6 +18,7 @@ export default function Carousel({ slides, autoPlay = true, interval = 4800 }) {
   const [current, setCurrent] = useState(0)
   const timerRef = useRef(null)
   const total = slides.length
+  const reducedMotion = usePrefersReducedMotion()
 
   const goTo = useCallback((idx) => {
     setCurrent(((idx % total) + total) % total)
@@ -26,10 +28,10 @@ export default function Carousel({ slides, autoPlay = true, interval = 4800 }) {
   const prev = useCallback(() => goTo(current - 1), [current, goTo])
 
   const startAuto = useCallback(() => {
-    if (!autoPlay) return
+    if (!autoPlay || reducedMotion) return
     clearInterval(timerRef.current)
     timerRef.current = setInterval(() => setCurrent(c => (c + 1) % total), interval)
-  }, [autoPlay, interval, total])
+  }, [autoPlay, interval, reducedMotion, total])
 
   const stopAuto = useCallback(() => clearInterval(timerRef.current), [])
 
@@ -55,6 +57,7 @@ export default function Carousel({ slides, autoPlay = true, interval = 4800 }) {
       onTouchEnd={handleTouchEnd}
       role="region"
       aria-roledescription="carousel"
+      aria-label="Galeria de imagens"
     >
       {/* Track */}
       <div
@@ -62,11 +65,21 @@ export default function Carousel({ slides, autoPlay = true, interval = 4800 }) {
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {slides.map((slide, i) => (
-          <div key={i} className="flex-shrink-0 w-full" role="group" aria-roledescription="slide">
-            <DualLayerImg
+          <div
+            key={i}
+            className="flex-shrink-0 w-full"
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`${i + 1} de ${total}`}
+            aria-hidden={i !== current}
+          >
+            <ResponsiveImage
               src={slide.src}
               alt={slide.caption || ''}
-              className="w-full h-64 md:h-80 lg:h-96"
+              className="w-full aspect-[16/10] bg-black"
+              imgClassName="object-contain"
+              width="1200"
+              height="750"
             />
             {slide.caption && (
               <p className="text-center text-xs text-gray-400 font-inter py-3 px-4 italic bg-dark-200">
@@ -105,6 +118,7 @@ export default function Carousel({ slides, autoPlay = true, interval = 4800 }) {
                   i === current ? 'bg-gold scale-125' : 'bg-white/40 hover:bg-white/70'
                 }`}
                 aria-label={`Slide ${i + 1}`}
+                aria-current={i === current ? 'true' : undefined}
               />
             ))}
           </div>

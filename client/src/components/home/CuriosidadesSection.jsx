@@ -19,7 +19,7 @@ function CurioCard({ item, index }) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: (index % 3) * 0.08 }}
-      className={`bg-dark-200 border border-white/8 p-6 hover:border-gold/30 transition-colors duration-500 ${
+      className={`rounded-editorial bg-dark-200 border border-white/8 p-7 hover:border-gold/30 transition-all duration-500 hover:-translate-y-1 ${
         item.video ? 'flex flex-col' : ''
       }`}
     >
@@ -52,8 +52,8 @@ export default function CuriosidadesSection() {
   const headerInView = useInView(headerRef, { once: true })
 
   return (
-    <section className="py-20 md:py-28 bg-dark" id="curiosidades">
-      <div className="max-w-7xl mx-auto px-5 md:px-10">
+    <section className="editorial-section bg-dark" id="curiosidades">
+      <div className="editorial-container">
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 20 }}

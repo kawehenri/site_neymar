@@ -1,12 +1,13 @@
 import { useState, useRef } from 'react'
 import NavbarSimple from '../components/shared/NavbarSimple'
 import FooterSimple from '../components/shared/FooterSimple'
+import PageMeta from '../components/shared/PageMeta'
 
 /** E-mail FormSubmit (GitHub Pages / hospedagem estática) */
-const CONTACT_EMAIL = 'kawehenri@gmail.com'
+const CONTACT_EMAIL = import.meta.env.VITE_FORM_EMAIL || 'kawehenri@gmail.com'
 
 const FIELD_CLASS = `
-  w-full bg-dark-300 border border-white/15 text-white font-inter text-sm px-4 py-3
+  w-full bg-dark-300/80 border border-white/15 text-white font-inter text-sm px-4 py-3.5
   placeholder:text-gray-600 focus:outline-none focus:border-gold
   transition-colors duration-300
 `.trim()
@@ -97,9 +98,15 @@ export default function Contato() {
 
   return (
     <div className="bg-dark text-white min-h-screen flex flex-col">
+      <PageMeta
+        title="Contato — NJR 10"
+        description="Envie uma mensagem, sugestão ou oportunidade sobre o projeto NJR 10."
+        path="/contato"
+      />
       <NavbarSimple />
 
-      <main className="flex-1 max-w-lg mx-auto w-full px-5 md:px-0 pt-28 pb-20">
+      <main id="conteudo" className="editorial-container flex-1 pt-32 pb-24">
+        <div className="max-w-2xl rounded-editorial border border-white/10 bg-gradient-to-br from-dark-200 to-dark p-6 shadow-editorial md:p-10">
         <p className="font-inter text-xs tracking-[0.35em] uppercase text-gold mb-2">Fale comigo</p>
         <h1 className="font-oswald text-4xl md:text-5xl font-semibold text-white mb-4">Contato</h1>
         <p className="font-inter text-gray-400 text-sm leading-relaxed mb-8">
@@ -188,6 +195,7 @@ export default function Contato() {
           <strong className="text-gray-500">Nota:</strong> no GitHub Pages o envio usa FormSubmit
           (sem servidor). Na primeira vez, confirme o e-mail de ativação enviado para a caixa de destino.
         </p>
+        </div>
       </main>
 
       <FooterSimple links={[

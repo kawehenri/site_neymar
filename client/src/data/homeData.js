@@ -85,7 +85,7 @@ export const timelineData = [
     image: '/olimpiadas1.jpeg',
     title: 'Ouro Olímpico — Rio 2016',
     desc: 'Neymar marcou o gol decisivo nos pênaltis no Maracanã e deu ao Brasil seu primeiro ouro olímpico no futebol masculino, encerrando um jejum histórico.',
-    items: ['Medalha de Ouro Olímpica', 'Artilheiro do torneio'],
+    items: ['Medalha de Ouro Olímpica', 'Pênalti decisivo no Maracanã'],
   },
   {
     year: '2017',

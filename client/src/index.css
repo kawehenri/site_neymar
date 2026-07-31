@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+  --page-gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-space: clamp(5rem, 9vw, 8.5rem);
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --hairline: rgba(255, 255, 255, 0.1);
+}
+
 @layer base {
   *, *::before, *::after {
     box-sizing: border-box;
@@ -22,6 +30,20 @@
   img { display: block; max-width: 100%; }
   a   { text-decoration: none; color: inherit; }
 
+  button, a, input, textarea, select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid #f0c040;
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: #f0c040;
+    color: #0b0b0b;
+  }
+
   ::-webkit-scrollbar       { width: 4px; }
   ::-webkit-scrollbar-track { background: #0b0b0b; }
   ::-webkit-scrollbar-thumb { background: #f0c040; border-radius: 2px; }
@@ -29,6 +51,35 @@
 
 /* ── Dual-layer image technique ── */
 @layer components {
+  .skip-link {
+    @apply fixed left-4 top-3 z-[100] bg-gold px-4 py-2 font-inter text-sm font-semibold text-dark;
+    transform: translateY(-160%);
+    transition: transform 180ms ease;
+  }
+  .skip-link:focus { transform: translateY(0); }
+
+  .editorial-container {
+    width: min(100% - (2 * var(--page-gutter)), 80rem);
+    margin-inline: auto;
+  }
+
+  .editorial-section { padding-block: var(--section-space); }
+
+  .display-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3.75rem, 12vw, 10.5rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 0.82;
+    text-transform: uppercase;
+  }
+
+  .glass-panel {
+    background: linear-gradient(145deg, rgba(28, 28, 28, 0.88), rgba(12, 12, 12, 0.74));
+    border: 1px solid var(--hairline);
+    backdrop-filter: blur(18px);
+  }
+
   .dual-img-wrap {
     @apply relative overflow-hidden;
   }
@@ -49,13 +100,19 @@
     @apply font-inter text-xs tracking-[0.35em] uppercase text-gold;
   }
   .section-title-lg {
-    @apply font-oswald text-3xl md:text-5xl font-semibold text-white tracking-wide;
+    @apply font-oswald font-semibold text-white;
+    font-size: clamp(2.25rem, 5vw, 4.75rem);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
   }
 
   /* ── Career card ── */
   .career-card {
-    @apply relative overflow-hidden rounded-lg cursor-pointer;
+    @apply relative overflow-hidden cursor-pointer;
     aspect-ratio: 3/4;
+    border-radius: 1rem;
+    border: 1px solid rgba(255,255,255,.1);
+    background: #111;
   }
   .career-card .img-bg {
     @apply absolute inset-0 w-full h-full object-cover;
@@ -65,7 +122,7 @@
     z-index: 0;
   }
   .career-card .img-main {
-    @apply absolute inset-0 w-full h-full object-contain;
+    @apply absolute inset-0 w-full h-full object-cover;
     z-index: 1;
     transition: transform 0.6s ease;
   }
@@ -78,7 +135,8 @@
     opacity: 0;
     transition: opacity 0.4s ease;
   }
-  .career-card:hover .career-overlay { opacity: 1; }
+  .career-card:hover .career-overlay,
+  .career-card:focus-within .career-overlay { opacity: 1; }
 
   /* ── Timeline ── */
   .tl-entry { @apply grid gap-0; }
@@ -147,4 +205,18 @@
 
   .net-visible .net-line { stroke-dashoffset: 0; }
   .net-visible .net-dot  { opacity: 1; transform: scale(1); }
+}
+
+@media (hover: none) {
+  .career-overlay { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

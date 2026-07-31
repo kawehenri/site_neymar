@@ -1,23 +1,48 @@
 import { Link } from 'react-router-dom'
 import NavbarSimple from '../components/shared/NavbarSimple'
 import FooterSimple from '../components/shared/FooterSimple'
-import DualLayerImg from '../components/shared/DualLayerImg'
+import ResponsiveImage from '../components/shared/ResponsiveImage'
+import PageMeta from '../components/shared/PageMeta'
 
 export default function Sobre() {
   return (
     <div className="bg-dark text-white min-h-screen flex flex-col">
+      <PageMeta
+        title="Sobre o projeto e o autor — NJR 10"
+        description="Conheça Kawê Henrique e o processo por trás desta experiência editorial independente sobre Neymar Jr."
+        path="/sobre"
+        image="/perfil.jpeg"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: 'Kawê Henrique',
+          url: 'https://ousadiayalegria.site/sobre',
+          sameAs: ['https://github.com/kawehenri', 'https://linkedin.com/in/kawehenri'],
+        }}
+      />
       <NavbarSimple />
 
-      <main className="flex-1 max-w-2xl mx-auto w-full px-5 md:px-10 pt-28 pb-20">
-        <p className="font-inter text-xs tracking-[0.35em] uppercase text-gold mb-2">Quem criou este site</p>
-        <h1 className="font-oswald text-4xl md:text-5xl font-semibold text-white mb-10">Sobre mim</h1>
-
-        {/* Profile image — dual layer */}
-        <div className="w-44 h-44 rounded-full overflow-hidden mx-auto md:mx-0 border-2 border-gold/30 mb-8">
-          <DualLayerImg src="/perfil.jpeg" alt="Foto de perfil de Kawê Henrique" className="w-full h-full" />
-        </div>
-
-        <div className="space-y-5">
+      <main id="conteudo" className="editorial-container flex-1 pb-24 pt-32">
+        <div className="grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div className="relative">
+            <ResponsiveImage
+              src="/perfil.jpeg"
+              alt="Kawê Henrique, desenvolvedor do projeto NJR 10"
+              className="aspect-[4/5] rounded-editorial border border-gold/20 bg-dark-200 shadow-editorial"
+              imgClassName="object-cover"
+              position="center 18%"
+              width="640"
+              height="800"
+              loading="eager"
+            />
+            <div className="absolute -bottom-5 -right-4 border border-gold/30 bg-dark px-5 py-3 font-inter text-xs uppercase tracking-[0.2em] text-gold">
+              Frontend &amp; direção criativa
+            </div>
+          </div>
+          <div>
+            <p className="font-inter text-xs tracking-[0.35em] uppercase text-gold mb-3">Quem criou este site</p>
+            <h1 className="font-oswald text-[clamp(3.5rem,8vw,7rem)] font-semibold leading-[0.85] tracking-[-0.035em] text-white mb-10">Código com<br />propósito.</h1>
+            <div className="space-y-5">
           <p className="font-inter text-gray-300 text-base leading-relaxed">
             Olá! Sou <strong className="text-white">Kawê Henrique</strong>, técnico em desenvolvimento de sistemas e apaixonado por futebol.
             Este projeto nasceu da vontade de homenagear <strong className="text-white">Neymar Jr.</strong> — não só pelos números e títulos,
@@ -31,10 +56,10 @@ export default function Sobre() {
             Se quiser trocar uma ideia, sugerir melhoria no site ou só mandar um alô, use a página{' '}
             <Link to="/contato" className="text-gold hover:text-gold-light transition-colors">Contato</Link>. Valeu por visitar!
           </p>
-        </div>
+            </div>
 
         {/* Social links */}
-        <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap gap-4">
           <a
             href="https://github.com/kawehenri"
             target="_blank"
@@ -66,6 +91,8 @@ export default function Sobre() {
             </svg>
             Voltar ao site
           </Link>
+            </div>
+          </div>
         </div>
       </main>
 

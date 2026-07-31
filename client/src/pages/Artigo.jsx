@@ -5,6 +5,8 @@ import NavbarSimple from '../components/shared/NavbarSimple'
 import FooterSimple from '../components/shared/FooterSimple'
 import Carousel from '../components/shared/Carousel'
 import DualLayerImg from '../components/shared/DualLayerImg'
+import ResponsiveImage from '../components/shared/ResponsiveImage'
+import PageMeta from '../components/shared/PageMeta'
 
 /* ── TOC ── */
 const TOC_ITEMS = [
@@ -22,40 +24,31 @@ const TOC_ITEMS = [
   { href: '#conclusao',        label: 'Conclusão' },
 ]
 
-/* ── Hero with rotating BG ── */
-const HERO_BG = ['/fundo_artigo1.jpeg', '/fundo_artigo2.jpeg', '/fundo_artigo3.jpeg']
-
 function ArticleHero() {
-  const [bgIdx, setBgIdx] = useState(0)
-  const [fading, setFading] = useState(false)
-
-  useEffect(() => {
-    const prefers = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefers) return
-    HERO_BG.forEach(s => { const i = new Image(); i.src = s })
-    const id = setInterval(() => {
-      setFading(true)
-      setTimeout(() => { setBgIdx(i => (i + 1) % HERO_BG.length); setFading(false) }, 900)
-    }, 7000)
-    return () => clearInterval(id)
-  }, [])
-
   return (
-    <header className="relative h-[70vh] min-h-[480px] flex items-end overflow-hidden">
-      <img
-        src={HERO_BG[bgIdx]}
-        alt="Neymar Jr"
-        className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[900ms] ${fading ? 'opacity-0' : 'opacity-100'}`}
-        fetchpriority="high"
+    <header className="relative flex min-h-[640px] items-end overflow-hidden md:h-[82vh]">
+      <ResponsiveImage
+        src="/generated/hero-artigo-1440.jpg"
+        sources={[
+          { type: 'image/avif', srcSet: '/generated/hero-artigo-960.avif 960w, /generated/hero-artigo-1440.avif 1440w, /generated/hero-artigo-1920.avif 1920w' },
+          { type: 'image/webp', srcSet: '/generated/hero-artigo-960.webp 960w, /generated/hero-artigo-1440.webp 1440w, /generated/hero-artigo-1920.webp 1920w' },
+        ]}
+        sizes="100vw"
+        alt="Neymar Jr. em retrato editorial"
+        className="absolute inset-0 h-full w-full"
+        width="1920"
+        height="1080"
+        loading="eager"
+        fetchPriority="high"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-dark/10" />
       <div className="absolute inset-0 bg-gradient-to-r from-dark/50 to-transparent" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 md:px-10 pb-14">
+      <div className="editorial-container relative z-10 pb-14 md:pb-20">
         <span className="inline-block font-inter text-xs font-semibold uppercase tracking-[0.25em] text-gold px-3 py-1 border border-gold/40 mb-4">
           Artigo Especial
         </span>
-        <h1 className="font-oswald text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
+        <h1 className="max-w-4xl font-oswald text-[clamp(3.25rem,8vw,7.5rem)] font-bold leading-[0.88] tracking-[-0.035em] text-white mb-5">
           Neymar Jr:<br />
           <em className="font-playfair font-normal italic text-gray-200">O Legado de um Príncipe</em>
         </h1>
@@ -76,6 +69,26 @@ function ArticleHero() {
         </div>
       </div>
     </header>
+  )
+}
+
+function ReadingProgress() {
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight
+      setProgress(max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0)
+    }
+    window.addEventListener('scroll', update, { passive: true })
+    update()
+    return () => window.removeEventListener('scroll', update)
+  }, [])
+
+  return (
+    <div className="fixed inset-x-0 top-0 z-[60] h-0.5 bg-white/5" aria-hidden="true">
+      <div className="h-full bg-gold" style={{ width: `${progress}%` }} />
+    </div>
   )
 }
 
@@ -126,7 +139,7 @@ const MINI_TL = [
   { year: '2003', title: 'Santos FC — Categorias de Base', desc: 'Começa a jornada no clube que o revelaria ao mundo' },
   { year: '2009', title: 'Estreia Profissional', desc: '7 de março — 17 anos e uma promessa que virou realidade instantânea' },
   { year: '2011', title: 'Libertadores da América', desc: 'Conquista o maior título do futebol sul-americano pelo Santos' },
-  { year: '2013', title: 'FC Barcelona + Copa das Confederações', desc: 'Transferência para a Catalunha e o MSN. Melhor jogador e artilheiro da Confed Cup' },
+  { year: '2013', title: 'FC Barcelona + Copa das Confederações', desc: 'Transferência para a Catalunha e o MSN. Melhor jogador da Copa das Confederações' },
   { year: '2015', title: 'Champions League', desc: 'MSN vence a Juventus — Neymar campeão europeu aos 23 anos' },
   { year: '2016', title: 'Ouro Olímpico — Rio 2016', desc: 'O pênalti decisivo no Maracanã. O Brasil chorou de alegria' },
   { year: '2017', title: 'Paris Saint-Germain — €222M', desc: 'A transferência que reescreveu a história do futebol' },
@@ -137,7 +150,7 @@ const MINI_TL = [
 
 /* ── Full stats ── */
 const FULL_STATS = [
-  { num: '500+', sup: '',  label: 'Gols na carreira',      detail: 'Em clubes e seleção' },
+  { num: '450+', sup: '',  label: 'Gols na carreira',      detail: 'Em clubes e seleção' },
   { num: '700+', sup: '',  label: 'Jogos disputados',       detail: 'Como profissional' },
   { num: '79',   sup: '+', label: 'Gols pela Seleção',      detail: 'Maior artilheiro da história' },
   { num: '30',   sup: '+', label: 'Títulos conquistados',   detail: 'Clubes e seleção' },
@@ -228,10 +241,33 @@ export default function Artigo() {
 
   return (
     <div className="bg-dark text-white min-h-screen">
+      <PageMeta
+        title="Neymar Jr.: o legado de um príncipe — NJR 10"
+        description="Uma reportagem autoral sobre a origem, as conquistas, o impacto cultural e o legado de Neymar Jr."
+        path="/artigo"
+        image="/generated/hero-artigo-1440.jpg"
+        type="article"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: 'Neymar Jr.: O Legado de um Príncipe',
+          author: { '@type': 'Person', name: 'Kawê Henrique' },
+          image: 'https://ousadiayalegria.site/generated/hero-artigo-1440.jpg',
+          mainEntityOfPage: 'https://ousadiayalegria.site/artigo',
+        }}
+      />
+      <ReadingProgress />
       <NavbarSimple />
       <ArticleHero />
 
-      <div className="max-w-7xl mx-auto px-5 md:px-10 py-12 grid xl:grid-cols-[1fr_280px] gap-12">
+      <main id="conteudo" className="editorial-container py-12">
+        <details className="mb-10 border border-white/10 bg-dark-200 p-5 xl:hidden">
+          <summary className="cursor-pointer font-oswald text-lg text-white">Índice do artigo</summary>
+          <nav className="mt-4 grid gap-2 sm:grid-cols-2">
+            {TOC_ITEMS.map(item => <a key={item.href} href={item.href} className="font-inter text-sm text-gray-400 hover:text-gold">{item.label}</a>)}
+          </nav>
+        </details>
+        <div className="grid gap-12 xl:grid-cols-[1fr_280px]">
         {/* Article body */}
         <article className="min-w-0">
 
@@ -548,7 +584,8 @@ export default function Artigo() {
 
         {/* Sidebar */}
         <Sidebar activeId={activeId} />
-      </div>
+        </div>
+      </main>
 
       <FooterSimple links={[
         { label: 'Sobre', to: '/sobre' },

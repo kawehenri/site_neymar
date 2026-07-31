@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { careerCards } from '../../data/homeData'
+import ResponsiveImage from '../shared/ResponsiveImage'
 
 const PlayIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
@@ -18,11 +19,24 @@ function CareerCard({ card, index }) {
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: (index % 3) * 0.1 }}
-      className={`career-card ${card.featured ? 'md:col-span-2 lg:col-span-2' : ''}`}
+      className={`career-card ${card.featured ? 'ring-1 ring-gold/30' : ''}`}
     >
-      {/* Dual layer images */}
-      <img src={card.image} alt="" className="img-bg" aria-hidden="true" decoding="async" loading="lazy" />
-      <img src={card.image} alt={card.title} className="img-main" decoding="async" loading="lazy" />
+      {card.id === 'santos' ? (
+        <ResponsiveImage
+          src="/generated/career-santos-600.jpg"
+          sources={[
+            { type: 'image/avif', srcSet: '/generated/career-santos-400.avif 400w, /generated/career-santos-600.avif 600w, /generated/career-santos-800.avif 800w' },
+            { type: 'image/webp', srcSet: '/generated/career-santos-400.webp 400w, /generated/career-santos-600.webp 600w, /generated/career-santos-800.webp 800w' },
+          ]}
+          sizes="(min-width: 1024px) 30vw, (min-width: 768px) 48vw, 100vw"
+          alt={card.title}
+          className="absolute inset-0 h-full w-full"
+          width="600"
+          height="800"
+        />
+      ) : (
+        <img src={card.image} alt={card.title} className="img-main" decoding="async" loading="lazy" />
+      )}
 
       {/* Overlay */}
       <div className="career-overlay">
@@ -58,8 +72,8 @@ export default function CareerSection() {
   const headerInView = useInView(headerRef, { once: true })
 
   return (
-    <section className="py-20 md:py-28 bg-dark" id="carreira">
-      <div className="max-w-7xl mx-auto px-5 md:px-10">
+    <section className="editorial-section bg-dark" id="carreira">
+      <div className="editorial-container">
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 20 }}
@@ -72,7 +86,7 @@ export default function CareerSection() {
           <p className="font-inter text-gray-500 mt-3">Dos campos do Santos aos maiores estádios do mundo</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[350px]">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {careerCards.map((card, i) => (
             <CareerCard key={card.id} card={card} index={i} />
           ))}

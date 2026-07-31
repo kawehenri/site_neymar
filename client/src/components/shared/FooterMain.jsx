@@ -33,11 +33,11 @@ export default function FooterMain() {
           {/* Nav */}
           <nav className="flex flex-wrap gap-x-7 gap-y-3">
             {[
-              { label: 'Início',        href: '#inicio' },
-              { label: 'Carreira',      href: '#carreira' },
-              { label: 'Linha do Tempo',href: '#timeline' },
-              { label: 'Curiosidades',  href: '#curiosidades' },
-              { label: 'Marcas',        href: '#marcas' },
+              { label: 'Início',        href: '/#inicio' },
+              { label: 'Carreira',      href: '/#carreira' },
+              { label: 'Linha do Tempo',href: '/#timeline' },
+              { label: 'Curiosidades',  href: '/#curiosidades' },
+              { label: 'Marcas',        href: '/#marcas' },
             ].map(l => (
               <a key={l.href} href={l.href}
                 className="font-inter text-sm text-gray-400 hover:text-gold transition-colors duration-300"
@@ -69,7 +69,7 @@ export default function FooterMain() {
 
         <div className="border-t border-white/5 pt-5 text-center">
           <p className="font-inter text-xs text-gray-600">
-            Desenvolvido com paixão por <strong className="text-gray-500">Kawê Henrique</strong> — 2025
+            Projeto independente desenvolvido por <strong className="text-gray-500">Kawê Henrique</strong> — {new Date().getFullYear()}
           </p>
         </div>
       </div>

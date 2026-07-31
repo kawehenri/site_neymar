@@ -3,3 +3,6 @@ Thumbs.db
 *.log
 server/.env
 server/node_modules/
+client/node_modules/
+client/dist/
+imgs/generated/

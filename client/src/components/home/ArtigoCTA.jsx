@@ -7,15 +7,16 @@ export default function ArtigoCTA() {
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <section className="py-16 bg-dark border-t border-white/5">
+    <section className="editorial-section bg-dark border-t border-white/5">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 24 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.65 }}
-        className="max-w-7xl mx-auto px-5 md:px-10"
+        className="editorial-container"
       >
-        <div className="bg-gradient-to-r from-dark-300 via-dark-200 to-dark-300 border border-gold/20 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="relative overflow-hidden rounded-editorial bg-gradient-to-r from-dark-300 via-dark-200 to-dark-300 border border-gold/20 p-8 shadow-gold md:p-14 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="pointer-events-none absolute -right-20 -top-28 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
           <div>
             <span className="inline-block font-inter text-xs font-semibold uppercase tracking-[0.2em] text-gold mb-3 px-3 py-1 border border-gold/30">
               Leitura Especial

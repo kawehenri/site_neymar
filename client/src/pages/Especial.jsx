@@ -4,6 +4,8 @@ import { motion, useInView } from 'framer-motion'
 import NavbarSimple from '../components/shared/NavbarSimple'
 import FooterSimple from '../components/shared/FooterSimple'
 import DualLayerImg from '../components/shared/DualLayerImg'
+import ResponsiveImage from '../components/shared/ResponsiveImage'
+import PageMeta from '../components/shared/PageMeta'
 
 /* ── Hero ── */
 function EspHero() {
@@ -32,10 +34,19 @@ function EspHero() {
             </svg>
           </a>
         </div>
-        <div className="flex-shrink-0">
-          <div className="w-36 h-36 md:w-48 md:h-48 rounded-full border-2 border-gold/40 p-2 bg-dark-300">
-            <img src="/logo_Neymar.png" alt="Logo Neymar Jr" className="w-full h-full rounded-full object-cover opacity-90" decoding="async" />
-          </div>
+        <div className="w-full max-w-sm flex-shrink-0">
+          <ResponsiveImage
+            src="/generated/especial-arte-01-600.jpg"
+            sources={[
+              { type: 'image/avif', srcSet: '/generated/especial-arte-01-400.avif 400w, /generated/especial-arte-01-600.avif 600w, /generated/especial-arte-01-800.avif 800w' },
+              { type: 'image/webp', srcSet: '/generated/especial-arte-01-400.webp 400w, /generated/especial-arte-01-600.webp 600w, /generated/especial-arte-01-800.webp 800w' },
+            ]}
+            alt="Retrato editorial de Neymar Jr."
+            className="aspect-[3/4] rounded-editorial border border-gold/20 shadow-gold"
+            width="600"
+            height="800"
+            loading="eager"
+          />
         </div>
       </div>
     </header>
@@ -123,8 +134,22 @@ function GalleryItem({ item, index }) {
       transition={{ duration: 0.55, delay: (index % 4) * 0.07 }}
       className="bg-dark-200 border border-white/8 overflow-hidden hover:border-gold/30 transition-colors duration-400"
     >
-      <div className="h-52">
-        <DualLayerImg src={item.src} alt={item.title} className="w-full h-full" />
+      <div className="aspect-[3/4]">
+        {item.generated ? (
+          <ResponsiveImage
+            src={`/generated/${item.generated}-600.jpg`}
+            sources={[
+              { type: 'image/avif', srcSet: `/generated/${item.generated}-400.avif 400w, /generated/${item.generated}-600.avif 600w, /generated/${item.generated}-800.avif 800w` },
+              { type: 'image/webp', srcSet: `/generated/${item.generated}-400.webp 400w, /generated/${item.generated}-600.webp 600w, /generated/${item.generated}-800.webp 800w` },
+            ]}
+            alt={item.title}
+            className="h-full w-full"
+            width="600"
+            height="800"
+          />
+        ) : (
+          <DualLayerImg src={item.src} alt={item.title} className="w-full h-full" />
+        )}
       </div>
       <div className="p-4">
         <h3 className="font-oswald text-base font-semibold text-white mb-1">{item.title}</h3>
@@ -140,10 +165,10 @@ const GALLERY_ITEMS = [
   { src: '/icon2.jpeg', title: 'A dança é parte do jogo',     desc: 'Comemorar com alegria é a assinatura de quem ama o que faz.' },
   { src: '/icon3.jpeg', title: 'O líder do vestiário',        desc: 'Onde o Ney está, o clima muda. Energia que contagia a todos.' },
   { src: '/icon4.jpeg', title: 'Estilo próprio, sempre',       desc: 'Dentro ou fora do campo, o visual faz parte da identidade.' },
-  { src: '/icon5.jpeg', title: 'Presente em cada detalhe',    desc: 'Os momentos mais autênticos acontecem quando a câmera é surpresa.' },
-  { src: '/icon6.jpeg', title: 'Sem filtro, sem script',       desc: 'O cara mais real que o futebol produziu. Sem personagem.' },
+  { src: '/icon5.jpeg', generated: 'especial-arte-01', title: 'Presente em cada detalhe', desc: 'Os momentos mais autênticos acontecem quando a câmera é surpresa.' },
+  { src: '/icon6.jpeg', generated: 'especial-arte-02', title: 'Sem filtro, sem script', desc: 'O cara mais real que o futebol produziu. Sem personagem.' },
   { src: '/icon7.jpeg', title: 'Uma geração inteira',         desc: 'Cada criança que sonhou ser jogador, sonhou ser Neymar.' },
-  { src: '/icon8.jpg',  title: 'O capítulo não acaba aqui',  desc: 'Talento, riso e coração — o Ney que a gente leva pra vida.' },
+  { src: '/icon8.jpg', generated: 'especial-arte-03', title: 'O capítulo não acaba aqui', desc: 'Talento, riso e coração — o Ney que a gente leva pra vida.' },
 ]
 
 function GaleriaSection() {
@@ -347,12 +372,20 @@ function VideosSection() {
 export default function Especial() {
   return (
     <div className="bg-dark text-white min-h-screen">
+      <PageMeta
+        title="O lado B do Rei — Especial NJR 10"
+        description="Carisma, autenticidade e inspiração: uma experiência visual sobre Neymar Jr. além das quatro linhas."
+        path="/especial"
+        image="/generated/especial-arte-01-800.jpg"
+      />
       <NavbarSimple />
-      <EspHero />
-      <CarismaSection />
-      <GaleriaSection />
-      <InspiracaoSection />
-      <VideosSection />
+      <main id="conteudo">
+        <EspHero />
+        <CarismaSection />
+        <GaleriaSection />
+        <InspiracaoSection />
+        <VideosSection />
+      </main>
       <FooterSimple links={[
         { label: 'Início',   to: '/' },
         { label: 'Carreira', href: '/#carreira' },

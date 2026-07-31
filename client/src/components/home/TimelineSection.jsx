@@ -1,7 +1,28 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import DualLayerImg from '../shared/DualLayerImg'
+import ResponsiveImage from '../shared/ResponsiveImage'
 import { timelineData } from '../../data/homeData'
+
+function TimelineMedia({ entry }) {
+  if (entry.year === '2016') {
+    return (
+      <ResponsiveImage
+        src="/generated/timeline-2016-720.jpg"
+        sources={[
+          { type: 'image/avif', srcSet: '/generated/timeline-2016-480.avif 480w, /generated/timeline-2016-720.avif 720w, /generated/timeline-2016-960.avif 960w' },
+          { type: 'image/webp', srcSet: '/generated/timeline-2016-480.webp 480w, /generated/timeline-2016-720.webp 720w, /generated/timeline-2016-960.webp 960w' },
+        ]}
+        sizes="(min-width: 768px) 42vw, 100vw"
+        alt={entry.title}
+        className="h-full w-full"
+        width="720"
+        height="540"
+      />
+    )
+  }
+  return <DualLayerImg src={entry.image} alt={entry.title} className="h-full w-full" />
+}
 
 function MobileTLItem({ entry, index }) {
   const ref = useRef(null)
@@ -17,8 +38,8 @@ function MobileTLItem({ entry, index }) {
     >
       <div className="absolute -left-[2.35rem] top-6 w-4 h-4 rounded-full bg-gold border-2 border-dark" />
       <div className="bg-dark-200 border border-white/8 overflow-hidden">
-        <div className="h-44 relative">
-          <DualLayerImg src={entry.image} alt={entry.title} className="w-full h-full" />
+        <div className="relative aspect-[4/3]">
+          <TimelineMedia entry={entry} />
           <span className="absolute top-3 right-3 font-oswald text-sm font-bold px-2.5 py-0.5 bg-gold text-dark">
             {entry.year}
           </span>
@@ -57,8 +78,8 @@ function TimelineEntry({ entry, index }) {
       <div className={`w-[calc(50%-2rem)] bg-dark-200 border border-white/8 overflow-hidden hover:border-gold/30 transition-colors duration-500 ${
         isLeft ? 'mr-8' : 'ml-8'
       }`}>
-        <div className="h-44 md:h-52 relative">
-          <DualLayerImg src={entry.image} alt={entry.title} className="w-full h-full" />
+        <div className="relative aspect-[4/3]">
+          <TimelineMedia entry={entry} />
           <div className={`absolute top-3 z-10 ${isLeft ? 'right-3' : 'left-3'}`}>
             <span className="font-oswald text-base font-bold px-3 py-1 bg-gold text-dark">
               {entry.year}
@@ -95,8 +116,8 @@ export default function TimelineSection() {
   const headerInView = useInView(headerRef, { once: true })
 
   return (
-    <section className="py-20 md:py-28 bg-dark-100" id="timeline">
-      <div className="max-w-7xl mx-auto px-5 md:px-10">
+    <section className="editorial-section bg-dark-100" id="timeline">
+      <div className="editorial-container">
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 20 }}

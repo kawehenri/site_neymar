@@ -17,14 +17,17 @@ const CloseIcon = () => (
 
 function MarcaModal({ modalId, onClose }) {
   const d = marcasData[modalId]
-  if (!d) return null
+  const closeRef = useRef(null)
 
   useEffect(() => {
     const fn = (e) => { if (e.key === 'Escape') onClose() }
     document.addEventListener('keydown', fn)
     document.body.style.overflow = 'hidden'
+    closeRef.current?.focus()
     return () => { document.removeEventListener('keydown', fn); document.body.style.overflow = '' }
   }, [onClose])
+
+  if (!d) return null
 
   return (
     <motion.div
@@ -43,6 +46,9 @@ function MarcaModal({ modalId, onClose }) {
         className="relative w-full max-w-lg bg-dark-200 border border-white/10 overflow-hidden"
         style={{ '--modal-accent': d.color }}
         onClick={e => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="marca-modal-title"
       >
         {/* Accent top bar */}
         <div className="h-1 w-full" style={{ background: d.color }} />
@@ -56,6 +62,7 @@ function MarcaModal({ modalId, onClose }) {
               </span>
             </div>
             <button
+              ref={closeRef}
               onClick={onClose}
               className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/10 rounded transition-all"
               aria-label="Fechar"
@@ -64,7 +71,7 @@ function MarcaModal({ modalId, onClose }) {
             </button>
           </div>
 
-          <h3 className="font-oswald text-2xl font-semibold text-white mb-3">{d.title}</h3>
+          <h3 id="marca-modal-title" className="font-oswald text-2xl font-semibold text-white mb-3">{d.title}</h3>
 
           {/* Media */}
           <div className="h-44 mb-4 rounded overflow-hidden">
@@ -76,7 +83,7 @@ function MarcaModal({ modalId, onClose }) {
           <ul className="space-y-2 mb-4">
             {d.details.map(t => (
               <li key={t} className="flex items-start gap-2 font-inter text-xs text-gray-300">
-                <span className="text-gold mt-0.5 flex-shrink-0">✦</span>
+                <span className="mt-2 h-px w-4 flex-shrink-0 bg-gold" aria-hidden="true" />
                 {t}
               </li>
             ))}
