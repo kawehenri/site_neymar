@@ -225,16 +225,41 @@ export default function Artigo() {
     return () => observer.disconnect()
   }, [])
 
-  // Scroll reveal
+  // Scroll reveal — conteúdo começa visível; só anima se o usuário permitir motion
   useEffect(() => {
     const prefers = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefers) return
+
+    const root = document.documentElement
+    root.classList.add('reveal-ready')
+
     const els = document.querySelectorAll('.will-reveal')
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed', 'visible'); obs.unobserve(e.target) } })
-    }, { threshold: 0.08 })
-    els.forEach(el => obs.observe(el))
-    return () => obs.disconnect()
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('revealed', 'visible')
+            obs.unobserve(e.target)
+          }
+        })
+      },
+      { threshold: 0.05, rootMargin: '0px 0px -8% 0px' }
+    )
+
+    els.forEach((el) => {
+      const rect = el.getBoundingClientRect()
+      const inView = rect.top < window.innerHeight * 0.92 && rect.bottom > 0
+      if (inView) {
+        el.classList.add('revealed', 'visible')
+      } else {
+        obs.observe(el)
+      }
+    })
+
+    return () => {
+      obs.disconnect()
+      root.classList.remove('reveal-ready')
+    }
   }, [])
 
   const p = 'font-inter text-gray-300 text-base leading-relaxed mb-5'

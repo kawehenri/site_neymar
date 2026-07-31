@@ -143,13 +143,21 @@
 
   /* ── Scroll reveal ── */
   .reveal, .will-reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .reveal.visible, .will-reveal.revealed {
     opacity: 1;
     transform: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal-ready .reveal,
+    .reveal-ready .will-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal-ready .reveal.visible,
+    .reveal-ready .will-reveal.revealed {
+      opacity: 1;
+      transform: none;
+    }
   }
 
   /* ── Carousel ── */
