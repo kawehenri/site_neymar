@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aquafloww.site/site_neymar/sitemap.xml
+Sitemap: https://ousadiayalegria.site/sitemap.xml

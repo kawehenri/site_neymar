@@ -1,5 +1,7 @@
 /**
- * Formulário de contato → POST /api/contact (mesma origem quando servido pelo server/)
+ * Formulário de contato
+ * - Local (server/): POST /api/contact (SMTP)
+ * - GitHub Pages / estático: FormSubmit.co (sem backend)
  */
 (function () {
   const form = document.getElementById("contactForm");
@@ -8,9 +10,14 @@
 
   if (!form || !statusEl || !btn) return;
 
-  const API_URL =
+  /** E-mail que recebe as mensagens no FormSubmit (GitHub Pages) */
+  const CONTACT_EMAIL = "kawehenri@gmail.com";
+
+  const host = window.location.hostname;
+  const useLocalApi =
     (typeof window.CONTACT_API_URL === "string" && window.CONTACT_API_URL) ||
-    "/api/contact";
+    host === "localhost" ||
+    host === "127.0.0.1";
 
   function showStatus(type, message) {
     statusEl.textContent = message;
@@ -21,6 +28,52 @@
   function hideStatus() {
     statusEl.className = "contact-form-status";
     statusEl.textContent = "";
+  }
+
+  async function sendViaLocalApi(payload) {
+    const url =
+      (typeof window.CONTACT_API_URL === "string" && window.CONTACT_API_URL) ||
+      "/api/contact";
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      throw new Error(data.error || data.message || "Erro ao enviar.");
+    }
+    return data.message || "Mensagem enviada com sucesso! Obrigado.";
+  }
+
+  async function sendViaFormSubmit(payload) {
+    const res = await fetch(
+      "https://formsubmit.co/ajax/" + encodeURIComponent(CONTACT_EMAIL),
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          nome: payload.nome,
+          email: payload.email,
+          assunto: payload.assunto,
+          mensagem: payload.mensagem,
+          _replyto: payload.email,
+          _subject: "[NJR10] " + payload.assunto,
+          _template: "table",
+          _captcha: "false",
+        }),
+      }
+    );
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || data.success === "false" || data.success === false) {
+      throw new Error(
+        data.message || "Falha ao enviar. Confirme o e-mail no FormSubmit se for o 1º envio."
+      );
+    }
+    return "Mensagem enviada com sucesso! Obrigado pelo contato.";
   }
 
   form.addEventListener("submit", async (e) => {
@@ -47,25 +100,17 @@
     btn.textContent = "Enviando…";
 
     try {
-      const res = await fetch(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome, email, assunto, mensagem }),
-      });
-
-      const data = await res.json().catch(() => ({}));
-
-      if (!res.ok) {
-        throw new Error(data.error || data.message || "Erro ao enviar.");
-      }
-
-      showStatus("ok", data.message || "Mensagem enviada com sucesso! Obrigado.");
+      const payload = { nome, email, assunto, mensagem };
+      const msg = useLocalApi
+        ? await sendViaLocalApi(payload)
+        : await sendViaFormSubmit(payload);
+      showStatus("ok", msg);
       form.reset();
     } catch (err) {
-      const msg =
-        err.message ||
-        "Não foi possível enviar. Verifique se o servidor está rodando e o e-mail configurado.";
-      showStatus("err", msg);
+      showStatus(
+        "err",
+        err.message || "Não foi possível enviar. Tente novamente em instantes."
+      );
     } finally {
       btn.disabled = false;
       btn.textContent = "Enviar mensagem";

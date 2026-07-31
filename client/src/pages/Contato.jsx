@@ -1,13 +1,68 @@
 import { useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import NavbarSimple from '../components/shared/NavbarSimple'
 import FooterSimple from '../components/shared/FooterSimple'
+
+/** E-mail FormSubmit (GitHub Pages / hospedagem estática) */
+const CONTACT_EMAIL = 'kawehenri@gmail.com'
 
 const FIELD_CLASS = `
   w-full bg-dark-300 border border-white/15 text-white font-inter text-sm px-4 py-3
   placeholder:text-gray-600 focus:outline-none focus:border-gold
   transition-colors duration-300
 `.trim()
+
+function useLocalApi() {
+  const host = typeof window !== 'undefined' ? window.location.hostname : ''
+  return host === 'localhost' || host === '127.0.0.1'
+}
+
+async function sendContact(data) {
+  const payload = {
+    nome: String(data.nome || '').trim(),
+    email: String(data.email || '').trim(),
+    assunto: String(data.assunto || '').trim(),
+    mensagem: String(data.mensagem || '').trim(),
+  }
+
+  if (useLocalApi()) {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+    const json = await res.json().catch(() => ({}))
+    if (!res.ok || !json.ok) {
+      throw new Error(json.error || 'Erro ao enviar mensagem.')
+    }
+    return json.message || 'Mensagem enviada com sucesso! Obrigado pelo contato.'
+  }
+
+  const res = await fetch(
+    `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_EMAIL)}`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        ...payload,
+        _replyto: payload.email,
+        _subject: `[NJR10] ${payload.assunto}`,
+        _template: 'table',
+        _captcha: 'false',
+      }),
+    }
+  )
+  const json = await res.json().catch(() => ({}))
+  if (!res.ok || json.success === 'false' || json.success === false) {
+    throw new Error(
+      json.message ||
+        'Falha ao enviar. Confirme o e-mail no FormSubmit se for o 1º envio.'
+    )
+  }
+  return 'Mensagem enviada com sucesso! Obrigado pelo contato.'
+}
 
 export default function Contato() {
   const [status, setStatus] = useState({ type: '', msg: '' })
@@ -20,22 +75,21 @@ export default function Contato() {
     setStatus({ type: '', msg: '' })
 
     const data = Object.fromEntries(new FormData(e.target))
+    if (data.website) {
+      setStatus({ type: 'ok', msg: 'Mensagem recebida.' })
+      setSending(false)
+      return
+    }
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+      const msg = await sendContact(data)
+      setStatus({ type: 'ok', msg })
+      formRef.current?.reset()
+    } catch (err) {
+      setStatus({
+        type: 'err',
+        msg: err.message || 'Erro de conexão. Tente novamente.',
       })
-      const json = await res.json()
-      if (json.ok) {
-        setStatus({ type: 'ok', msg: json.message })
-        formRef.current?.reset()
-      } else {
-        setStatus({ type: 'err', msg: json.error || 'Erro ao enviar mensagem.' })
-      }
-    } catch {
-      setStatus({ type: 'err', msg: 'Erro de conexão. Tente novamente.' })
     } finally {
       setSending(false)
     }
@@ -131,9 +185,8 @@ export default function Contato() {
         </form>
 
         <p className="font-inter text-xs text-gray-600 mt-8 leading-relaxed">
-          <strong className="text-gray-500">Nota:</strong> o envio só funciona quando o site é aberto pelo servidor do projeto
-          (ver <code className="text-gold/70 text-[11px]">server/README.md</code>).
-          Em hospedagem estática sem API, configure o servidor ou use outro serviço de formulário.
+          <strong className="text-gray-500">Nota:</strong> no GitHub Pages o envio usa FormSubmit
+          (sem servidor). Na primeira vez, confirme o e-mail de ativação enviado para a caixa de destino.
         </p>
       </main>
 
