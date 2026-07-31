@@ -30,9 +30,9 @@ export default function Sobre() {
               alt="Kawê Henrique, desenvolvedor do projeto NJR 10"
               className="aspect-[4/5] rounded-editorial border border-gold/20 bg-dark-200 shadow-editorial"
               imgClassName="object-cover"
-              position="center 18%"
-              width="640"
-              height="800"
+              position="center top"
+              width="800"
+              height="1000"
               loading="eager"
             />
             <div className="absolute -bottom-5 -right-4 border border-gold/30 bg-dark px-5 py-3 font-inter text-xs uppercase tracking-[0.2em] text-gold">
