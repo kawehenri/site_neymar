@@ -17,6 +17,26 @@ function deploymentAssets() {
       }
       fs.cpSync(path.join(projectRoot, 'video'), path.join(dist, 'video'), { recursive: true })
       fs.copyFileSync(path.join(dist, 'index.html'), path.join(dist, '404.html'))
+
+      // GitHub Pages SPA: rotas físicas com status 200 (404.html sozinho não basta em custom domain)
+      const spaRoutes = ['artigo', 'especial', 'sobre', 'contato']
+      for (const route of spaRoutes) {
+        const dir = path.join(dist, route)
+        fs.mkdirSync(dir, { recursive: true })
+        fs.copyFileSync(path.join(dist, 'index.html'), path.join(dir, 'index.html'))
+        // Compatibilidade com URLs legadas *.html
+        fs.copyFileSync(path.join(dist, 'index.html'), path.join(dist, `${route}.html`))
+      }
+
+      // Compatibilidade com paths antigos /imgs/*
+      const imgsDir = path.join(dist, 'imgs')
+      fs.mkdirSync(imgsDir, { recursive: true })
+      for (const asset of ['logo_Neymar.png', 'perfil.jpeg']) {
+        const src = path.join(dist, asset)
+        if (fs.existsSync(src)) {
+          fs.copyFileSync(src, path.join(imgsDir, asset))
+        }
+      }
     },
   }
 }
